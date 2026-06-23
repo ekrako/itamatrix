@@ -18,7 +18,9 @@ request into the right command + flags, encoding advanced intent as ITA
 
 The CLI ships as `itamatrix` (`npx itamatrix ...` if not installed globally).
 On first use it may ask for the browser: `npx playwright install chromium`.
-Queries take 30–60 s (Matrix is slow server-side); repeated queries hit the cache.
+Queries can take a while (Matrix is slow server-side); repeated queries hit the
+cache. **Set the command timeout to at least 180 s** — a search may run that long
+before returning. Don't kill it early and conclude it failed.
 
 Always run with `--json` so you get structured output to parse and summarize.
 
