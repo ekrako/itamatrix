@@ -34,7 +34,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.build.json",
     "dev": "tsx src/cli.ts",
     "gen:skill": "tsx scripts/gen-skill.ts",
     "gen:skill:check": "tsx scripts/gen-skill.ts --check",
