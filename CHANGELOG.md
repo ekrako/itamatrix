@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/ekrako/itamatrix/compare/v1.0.1...v1.0.2) (2026-06-23)
+
+## Bug Fixes
+
+* run CLI when invoked via npm/npx bin symlink ([434866e](https://github.com/ekrako/itamatrix/commit/434866ee5b6224ca271b602b9a311d06b8b17831))
+
 ## [1.0.1](https://github.com/ekrako/itamatrix/compare/v1.0.0...v1.0.1) (2026-06-23)
 
 ## Bug Fixes

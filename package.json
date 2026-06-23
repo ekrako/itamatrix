@@ -1,6 +1,6 @@
 {
   "name": "itamatrix",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI for ITA Matrix flight search",
   "type": "module",
   "bin": {
