@@ -13,6 +13,12 @@ repos:
         language: system
         files: \.ts$
         pass_filenames: false
+      - id: fix-changelog
+        name: normalize CHANGELOG.md
+        entry: npm run --silent fix:changelog
+        language: system
+        files: ^CHANGELOG\.md$
+        pass_filenames: false
       - id: markdownlint
         name: markdownlint-cli2
         entry: npm run --silent lint:md

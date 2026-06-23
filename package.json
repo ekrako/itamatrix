@@ -39,6 +39,7 @@
     "gen:skill": "tsx scripts/gen-skill.ts",
     "gen:skill:check": "tsx scripts/gen-skill.ts --check",
     "lint:md": "markdownlint-cli2 \"**/*.md\"",
+    "fix:changelog": "tsx scripts/fix-changelog.ts",
     "prepare": "pre-commit install || true",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit",
