@@ -42,7 +42,7 @@ export async function driveMultiCityForm(
   page: Page,
   spec: MultiCitySpec,
 ): Promise<void> {
-  await page.getByRole("tab", { name: "Multi-City", exact: true }).click();
+  await page.getByRole("tab", { name: /multi[\s-]?city/i }).click();
   await ensureLegRows(page, spec.slices.length);
 
   for (const [i, leg] of spec.slices.entries()) {
@@ -116,13 +116,16 @@ async function setAdvancedControls(
 }
 
 /**
- * Adds "Add another flight" rows until the form has `count` legs. Matrix shows
- * two legs by default, so we only click for the extras.
+ * Adds "Add Flight" rows until the form has `count` legs. The default number of
+ * rows Matrix renders has drifted (currently one), so derive it from the live
+ * combobox count (two per leg) rather than assuming a fixed starting point.
  */
 async function ensureLegRows(page: Page, count: number): Promise<void> {
   const addLeg = page.getByRole("button", { name: /add (another )?flight/i });
-  for (let existing = 2; existing < count; existing++) {
+  const comboboxes = page.getByRole("combobox", { name: "Add airport" });
+  for (let existing = (await comboboxes.count()) / 2; existing < count; existing++) {
     await addLeg.click();
+    await comboboxes.nth(2 * existing + 1).waitFor({ state: "visible", timeout: 15_000 });
   }
 }
 
