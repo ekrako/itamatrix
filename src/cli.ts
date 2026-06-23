@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { createRequire } from "node:module";
+import { realpathSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import { Command, InvalidArgumentError } from "commander";
 import {
@@ -44,12 +46,18 @@ function resolveFormat(json?: boolean, table?: boolean): OutputFormat {
   return process.stdout.isTTY ? "table" : "json";
 }
 
+// Read version from package.json so it tracks semantic-release bumps (which only
+// update package.json, never this file). dist/cli.js sits one dir below package root.
+const { version } = createRequire(import.meta.url)("../package.json") as {
+  version: string;
+};
+
 export const program = new Command();
 
 program
   .name("itamatrix")
   .description("CLI for ITA Matrix flight search")
-  .version("0.1.0")
+  .version(version)
   .option("--json", "force JSON output")
   .option("--table", "force table output")
   .option("--no-cache", "bypass the result cache (always query live)")
@@ -179,6 +187,18 @@ program
 
 // Parse only when run as the CLI entrypoint, so tools can import `program` to
 // introspect commands/options (see scripts/gen-skill.ts) without triggering a run.
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+// argv[1] is realpath'd because npm/npx invoke the bin via a symlink, whose path
+// would otherwise never match this module's resolved import.meta.url.
+function isCliEntrypoint(): boolean {
+  const entry = process.argv[1];
+  if (!entry) return false;
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(entry)).href;
+  } catch {
+    return false;
+  }
+}
+
+if (isCliEntrypoint()) {
   program.parseAsync(process.argv);
 }
