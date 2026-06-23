@@ -1,0 +1,13 @@
+{
+  "config": {
+    "default": true,
+    // Prose wraps at ~95 cols here; tables/code exceed it. Don't enforce a hard limit.
+    "MD013": false,
+    // Allow inline HTML — the generated-block markers in SKILL.md are HTML comments.
+    "MD033": false,
+    // First line need not be a top-level heading (frontmatter precedes it).
+    "MD041": false
+  },
+  "globs": ["**/*.md"],
+  "ignores": ["node_modules", "dist"]
+}

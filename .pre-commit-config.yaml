@@ -1,0 +1,21 @@
+repos:
+  - repo: local
+    hooks:
+      - id: gen-skill-check
+        name: skill in sync with CLI
+        entry: npm run --silent gen:skill:check
+        language: system
+        files: ^(src/cli\.ts|scripts/gen-skill\.ts|skills/itamatrix/SKILL\.md)$
+        pass_filenames: false
+      - id: typecheck
+        name: tsc --noEmit
+        entry: npm run --silent typecheck
+        language: system
+        files: \.ts$
+        pass_filenames: false
+      - id: markdownlint
+        name: markdownlint-cli2
+        entry: npm run --silent lint:md
+        language: system
+        files: \.md$
+        pass_filenames: false

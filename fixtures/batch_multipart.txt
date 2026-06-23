@@ -1,0 +1,3217 @@
+
+--batch_4pyPNaVO99QAxfmnmTN7khrXla0C1Sf3
+Content-Type: application/http
+Content-ID: <response-batch286353958458882699+gapiRequest@googleapis.com>
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=UTF-8
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+
+{
+  "carrierStopMatrix": {
+    "columns": [
+      {
+        "label": {
+          "code": "UA",
+          "shortName": "United"
+        }
+      },
+      {
+        "label": {
+          "code": "AA",
+          "shortName": "American"
+        }
+      },
+      {
+        "label": {
+          "code": "B6",
+          "shortName": "JetBlue"
+        }
+      },
+      {
+        "label": {
+          "code": "DL",
+          "shortName": "Delta"
+        }
+      },
+      {
+        "label": {
+          "code": "*",
+          "shortName": "Multiple Carriers"
+        }
+      }
+    ],
+    "rows": [
+      {
+        "cells": [
+          {
+            "minPrice": "USD440.00",
+            "minPriceInColumn": true,
+            "minPriceInGrid": true,
+            "minPriceInRow": true
+          },
+          {
+            "minPrice": "USD507.00",
+            "minPriceInColumn": true
+          },
+          {
+            "minPrice": "USD507.00",
+            "minPriceInColumn": true
+          },
+          {
+            "minPrice": "USD577.00",
+            "minPriceInColumn": true
+          },
+          {
+            "minPrice": "USD922.00",
+            "minPriceInColumn": true
+          }
+        ],
+        "label": 0
+      }
+    ]
+  },
+  "currencyNotice": {
+    "ext": {
+      "price": "USD440.00"
+    }
+  },
+  "durationSliderItinerary": [
+    {
+      "groups": [
+        {
+          "label": {
+            "end": 366,
+            "start": 365
+          },
+          "minPrice": "USD507.00"
+        },
+        {
+          "label": {
+            "end": 369,
+            "start": 368
+          },
+          "minPrice": "USD687.00"
+        },
+        {
+          "label": {
+            "end": 370,
+            "start": 369
+          },
+          "minPrice": "USD507.00"
+        },
+        {
+          "label": {
+            "end": 371,
+            "start": 370
+          },
+          "minPrice": "USD662.00"
+        },
+        {
+          "label": {
+            "end": 372,
+            "start": 371
+          },
+          "minPrice": "USD662.00"
+        },
+        {
+          "label": {
+            "end": 373,
+            "start": 372
+          },
+          "minPrice": "USD577.00"
+        },
+        {
+          "label": {
+            "end": 375,
+            "start": 374
+          },
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        }
+      ],
+      "maxDuration": 374,
+      "minDuration": 365,
+      "index": 0
+    },
+    {
+      "groups": [
+        {
+          "label": {
+            "end": 331,
+            "start": 330
+          },
+          "minPrice": "USD577.00"
+        },
+        {
+          "label": {
+            "end": 332,
+            "start": 331
+          },
+          "minPrice": "USD577.00"
+        },
+        {
+          "label": {
+            "end": 338,
+            "start": 337
+          },
+          "minPrice": "USD507.00"
+        },
+        {
+          "label": {
+            "end": 339,
+            "start": 338
+          },
+          "minPrice": "USD767.00"
+        },
+        {
+          "label": {
+            "end": 340,
+            "start": 339
+          },
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        },
+        {
+          "label": {
+            "end": 341,
+            "start": 340
+          },
+          "minPrice": "USD547.00"
+        }
+      ],
+      "maxDuration": 340,
+      "minDuration": 330,
+      "index": 1
+    }
+  ],
+  "itineraryArrivalTimeRanges": [
+    {
+      "groups": [
+        {
+          "label": {
+            "end": "08:00",
+            "start": "00:00"
+          }
+        },
+        {
+          "label": {
+            "end": "11:00",
+            "start": "08:00"
+          },
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        },
+        {
+          "label": {
+            "end": "14:00",
+            "start": "11:00"
+          },
+          "minPrice": "USD687.00"
+        },
+        {
+          "label": {
+            "end": "17:00",
+            "start": "14:00"
+          },
+          "minPrice": "USD662.00"
+        },
+        {
+          "label": {
+            "end": "21:00",
+            "start": "17:00"
+          },
+          "minPrice": "USD662.00"
+        },
+        {
+          "label": {
+            "end": "23:59",
+            "start": "21:00"
+          },
+          "minPrice": "USD617.00"
+        }
+      ]
+    },
+    {
+      "groups": [
+        {
+          "label": {
+            "end": "08:00",
+            "start": "00:00"
+          },
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        },
+        {
+          "label": {
+            "end": "11:00",
+            "start": "08:00"
+          }
+        },
+        {
+          "label": {
+            "end": "14:00",
+            "start": "11:00"
+          }
+        },
+        {
+          "label": {
+            "end": "17:00",
+            "start": "14:00"
+          },
+          "minPrice": "USD547.00"
+        },
+        {
+          "label": {
+            "end": "21:00",
+            "start": "17:00"
+          },
+          "minPrice": "USD767.00"
+        },
+        {
+          "label": {
+            "end": "23:59",
+            "start": "21:00"
+          },
+          "minPrice": "USD485.00"
+        }
+      ]
+    }
+  ],
+  "itineraryCarrierList": {
+    "groups": [
+      {
+        "label": {
+          "code": "AA",
+          "shortName": "American"
+        },
+        "minPrice": "USD507.00"
+      },
+      {
+        "label": {
+          "code": "DL",
+          "shortName": "Delta"
+        },
+        "minPrice": "USD577.00"
+      },
+      {
+        "label": {
+          "code": "B6",
+          "shortName": "JetBlue"
+        },
+        "minPrice": "USD507.00"
+      },
+      {
+        "label": {
+          "code": "*",
+          "shortName": "Multiple Carriers"
+        },
+        "minPrice": "USD922.00"
+      },
+      {
+        "label": {
+          "code": "UA",
+          "shortName": "United"
+        },
+        "minPrice": "USD440.00",
+        "minPriceInSummary": true
+      }
+    ]
+  },
+  "itineraryDepartureTimeRanges": [
+    {
+      "groups": [
+        {
+          "label": {
+            "end": "08:00",
+            "start": "00:00"
+          },
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        },
+        {
+          "label": {
+            "end": "11:00",
+            "start": "08:00"
+          },
+          "minPrice": "USD662.00"
+        },
+        {
+          "label": {
+            "end": "14:00",
+            "start": "11:00"
+          }
+        },
+        {
+          "label": {
+            "end": "17:00",
+            "start": "14:00"
+          },
+          "minPrice": "USD662.00"
+        },
+        {
+          "label": {
+            "end": "21:00",
+            "start": "17:00"
+          },
+          "minPrice": "USD617.00"
+        },
+        {
+          "label": {
+            "end": "23:59",
+            "start": "21:00"
+          }
+        }
+      ]
+    },
+    {
+      "groups": [
+        {
+          "label": {
+            "end": "08:00",
+            "start": "00:00"
+          },
+          "minPrice": "USD547.00"
+        },
+        {
+          "label": {
+            "end": "11:00",
+            "start": "08:00"
+          },
+          "minPrice": "USD767.00"
+        },
+        {
+          "label": {
+            "end": "14:00",
+            "start": "11:00"
+          },
+          "minPrice": "USD485.00"
+        },
+        {
+          "label": {
+            "end": "17:00",
+            "start": "14:00"
+          },
+          "minPrice": "USD567.00"
+        },
+        {
+          "label": {
+            "end": "21:00",
+            "start": "17:00"
+          }
+        },
+        {
+          "label": {
+            "end": "23:59",
+            "start": "21:00"
+          },
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        }
+      ]
+    }
+  ],
+  "itineraryDestinations": [
+    {
+      "groups": [
+        {
+          "label": {
+            "code": "LAX",
+            "name": "Los Angeles International"
+          },
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        }
+      ]
+    },
+    {
+      "groups": [
+        {
+          "label": {
+            "code": "BOS",
+            "name": "Boston Edward L. Logan International"
+          },
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        }
+      ]
+    }
+  ],
+  "itineraryOrigins": [
+    {
+      "groups": [
+        {
+          "label": {
+            "code": "BOS",
+            "name": "Boston Edward L. Logan International"
+          },
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        }
+      ]
+    },
+    {
+      "groups": [
+        {
+          "label": {
+            "code": "LAX",
+            "name": "Los Angeles International"
+          },
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        }
+      ]
+    }
+  ],
+  "itineraryPriceSlider": {
+    "groups": [
+      {
+        "label": {
+          "end": "USD446.00",
+          "start": "USD440.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD488.00",
+          "start": "USD482.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD512.00",
+          "start": "USD506.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD548.00",
+          "start": "USD542.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD572.00",
+          "start": "USD566.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD578.00",
+          "start": "USD572.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD590.00",
+          "start": "USD584.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD620.00",
+          "start": "USD614.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD662.00",
+          "start": "USD656.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD668.00",
+          "start": "USD662.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD692.00",
+          "start": "USD686.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD704.00",
+          "start": "USD698.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD770.00",
+          "start": "USD764.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD878.00",
+          "start": "USD872.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD926.00",
+          "start": "USD920.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD932.00",
+          "start": "USD926.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD974.00",
+          "start": "USD968.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD1028.00",
+          "start": "USD1022.00"
+        }
+      },
+      {
+        "label": {
+          "end": "USD1040.00",
+          "start": "USD1034.00"
+        }
+      }
+    ],
+    "maxPrice": "USD1037.00",
+    "minPrice": "USD440.00"
+  },
+  "itineraryStopCountList": {
+    "groups": [
+      {
+        "label": 0,
+        "minPrice": "USD440.00",
+        "minPriceInSummary": true
+      }
+    ]
+  },
+  "solutionList": {
+    "pages": {
+      "count": 2,
+      "current": 1
+    },
+    "solutions": [
+      {
+        "ext": {
+          "price": "USD440.00",
+          "pricePerMile": "USD0.0844854071",
+          "totalPrice": "USD439.81"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "UA",
+              "shortName": "United"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:35-07:00",
+              "departure": "2026-08-10T06:21-04:00",
+              "flights": [
+                "UA360"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 374
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-18T07:53-04:00",
+              "departure": "2026-08-17T23:14-07:00",
+              "flights": [
+                "UA2210"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 339,
+              "ext": {
+                "warnings": {
+                  "types": [
+                    "OVERNIGHT"
+                  ],
+                  "overnight": true
+                }
+              }
+            }
+          ],
+          "carriers": [
+            {
+              "code": "UA",
+              "shortName": "United"
+            }
+          ],
+          "singleCarrier": {
+            "code": "UA",
+            "shortName": "United"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD439.81"
+          }
+        ],
+        "displayTotal": "USD439.81",
+        "id": "ImmNGoHljG0LS0DBt6kpt5001",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD485.00",
+          "pricePerMile": "USD0.0931259601",
+          "totalPrice": "USD484.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "UA",
+              "shortName": "United"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:35-07:00",
+              "departure": "2026-08-10T06:21-04:00",
+              "flights": [
+                "UA360"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 374
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T21:29-04:00",
+              "departure": "2026-08-17T12:50-07:00",
+              "flights": [
+                "UA2126"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 339
+            }
+          ],
+          "carriers": [
+            {
+              "code": "UA",
+              "shortName": "United"
+            }
+          ],
+          "singleCarrier": {
+            "code": "UA",
+            "shortName": "United"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD484.80"
+          }
+        ],
+        "displayTotal": "USD484.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt5002",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD507.00",
+          "pricePerMile": "USD0.0973502305",
+          "totalPrice": "USD506.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:09-07:00",
+              "departure": "2026-08-10T06:00-04:00",
+              "flights": [
+                "B6287"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 369
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-18T06:54-04:00",
+              "departure": "2026-08-17T22:15-07:00",
+              "flights": [
+                "B6488"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 339,
+              "ext": {
+                "warnings": {
+                  "types": [
+                    "OVERNIGHT"
+                  ],
+                  "overnight": true
+                }
+              }
+            }
+          ],
+          "carriers": [
+            {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          ],
+          "singleCarrier": {
+            "code": "B6",
+            "shortName": "JetBlue"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD506.80"
+          }
+        ],
+        "displayTotal": "USD506.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt5004",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD507.00",
+          "pricePerMile": "USD0.0973502305",
+          "totalPrice": "USD506.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "AA",
+              "shortName": "American"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T10:05-07:00",
+              "departure": "2026-08-10T07:00-04:00",
+              "flights": [
+                "AA2455"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 365
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-18T07:36-04:00",
+              "departure": "2026-08-17T22:59-07:00",
+              "flights": [
+                "AA2453"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 337,
+              "ext": {
+                "warnings": {
+                  "types": [
+                    "OVERNIGHT"
+                  ],
+                  "overnight": true
+                }
+              }
+            }
+          ],
+          "carriers": [
+            {
+              "code": "AA",
+              "shortName": "American"
+            }
+          ],
+          "singleCarrier": {
+            "code": "AA",
+            "shortName": "American"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD506.80"
+          }
+        ],
+        "displayTotal": "USD506.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt5003",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD547.00",
+          "pricePerMile": "USD0.105030722",
+          "totalPrice": "USD546.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:09-07:00",
+              "departure": "2026-08-10T06:00-04:00",
+              "flights": [
+                "B6287"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 369
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T14:40-04:00",
+              "departure": "2026-08-17T06:00-07:00",
+              "flights": [
+                "B6888"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 340
+            }
+          ],
+          "carriers": [
+            {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          ],
+          "singleCarrier": {
+            "code": "B6",
+            "shortName": "JetBlue"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD546.80"
+          }
+        ],
+        "displayTotal": "USD546.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt5006",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD547.00",
+          "pricePerMile": "USD0.105030722",
+          "totalPrice": "USD546.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T10:09-07:00",
+              "departure": "2026-08-10T07:00-04:00",
+              "flights": [
+                "B6687"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 369
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-18T06:54-04:00",
+              "departure": "2026-08-17T22:15-07:00",
+              "flights": [
+                "B6488"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 339,
+              "ext": {
+                "warnings": {
+                  "types": [
+                    "OVERNIGHT"
+                  ],
+                  "overnight": true
+                }
+              }
+            }
+          ],
+          "carriers": [
+            {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          ],
+          "singleCarrier": {
+            "code": "B6",
+            "shortName": "JetBlue"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD546.80"
+          }
+        ],
+        "displayTotal": "USD546.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt5005",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD567.00",
+          "pricePerMile": "USD0.1088709678",
+          "totalPrice": "USD566.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "AA",
+              "shortName": "American"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T10:05-07:00",
+              "departure": "2026-08-10T07:00-04:00",
+              "flights": [
+                "AA2455"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 365
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T23:44-04:00",
+              "departure": "2026-08-17T15:05-07:00",
+              "flights": [
+                "AA382"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 339
+            }
+          ],
+          "carriers": [
+            {
+              "code": "AA",
+              "shortName": "American"
+            }
+          ],
+          "singleCarrier": {
+            "code": "AA",
+            "shortName": "American"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD566.80"
+          }
+        ],
+        "displayTotal": "USD566.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt5007",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD577.00",
+          "pricePerMile": "USD0.1107910907",
+          "totalPrice": "USD576.79"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:37-07:00",
+              "departure": "2026-08-10T06:25-04:00",
+              "flights": [
+                "DL479"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 372
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T23:51-04:00",
+              "departure": "2026-08-17T15:20-07:00",
+              "flights": [
+                "DL2166"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 331
+            }
+          ],
+          "carriers": [
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "DL",
+            "shortName": "Delta"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD576.79"
+          }
+        ],
+        "displayTotal": "USD576.79",
+        "id": "ImmNGoHljG0LS0DBt6kpt5009",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD577.00",
+          "pricePerMile": "USD0.1107910907",
+          "totalPrice": "USD576.79"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:37-07:00",
+              "departure": "2026-08-10T06:25-04:00",
+              "flights": [
+                "DL479"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 372
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-18T05:30-04:00",
+              "departure": "2026-08-17T21:00-07:00",
+              "flights": [
+                "DL507"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 330,
+              "ext": {
+                "warnings": {
+                  "types": [
+                    "OVERNIGHT"
+                  ],
+                  "overnight": true
+                }
+              }
+            }
+          ],
+          "carriers": [
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "DL",
+            "shortName": "Delta"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD576.79"
+          }
+        ],
+        "displayTotal": "USD576.79",
+        "id": "ImmNGoHljG0LS0DBt6kpt5008",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD587.00",
+          "pricePerMile": "USD0.1127112136",
+          "totalPrice": "USD586.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T10:09-07:00",
+              "departure": "2026-08-10T07:00-04:00",
+              "flights": [
+                "B6687"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 369
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T14:40-04:00",
+              "departure": "2026-08-17T06:00-07:00",
+              "flights": [
+                "B6888"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 340
+            }
+          ],
+          "carriers": [
+            {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          ],
+          "singleCarrier": {
+            "code": "B6",
+            "shortName": "JetBlue"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD586.80"
+          }
+        ],
+        "displayTotal": "USD586.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt500A",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD588.00",
+          "pricePerMile": "USD0.1129032259",
+          "totalPrice": "USD587.79"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:37-07:00",
+              "departure": "2026-08-10T06:25-04:00",
+              "flights": [
+                "DL479"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 372
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T15:02-04:00",
+              "departure": "2026-08-17T06:25-07:00",
+              "flights": [
+                "DL639"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 337
+            }
+          ],
+          "carriers": [
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "DL",
+            "shortName": "Delta"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD587.79"
+          }
+        ],
+        "displayTotal": "USD587.79",
+        "id": "ImmNGoHljG0LS0DBt6kpt500B",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD617.00",
+          "pricePerMile": "USD0.1184715822",
+          "totalPrice": "USD616.79"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T23:39-07:00",
+              "departure": "2026-08-10T20:25-04:00",
+              "flights": [
+                "B6387"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 374
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-18T06:54-04:00",
+              "departure": "2026-08-17T22:15-07:00",
+              "flights": [
+                "B6488"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 339,
+              "ext": {
+                "warnings": {
+                  "types": [
+                    "OVERNIGHT"
+                  ],
+                  "overnight": true
+                }
+              }
+            }
+          ],
+          "carriers": [
+            {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          ],
+          "singleCarrier": {
+            "code": "B6",
+            "shortName": "JetBlue"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD616.79"
+          }
+        ],
+        "displayTotal": "USD616.79",
+        "id": "ImmNGoHljG0LS0DBt6kpt500C",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD657.00",
+          "pricePerMile": "USD0.1261520738",
+          "totalPrice": "USD656.79"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T23:39-07:00",
+              "departure": "2026-08-10T20:25-04:00",
+              "flights": [
+                "B6387"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 374
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T14:40-04:00",
+              "departure": "2026-08-17T06:00-07:00",
+              "flights": [
+                "B6888"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 340
+            }
+          ],
+          "carriers": [
+            {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          ],
+          "singleCarrier": {
+            "code": "B6",
+            "shortName": "JetBlue"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD656.79"
+          }
+        ],
+        "displayTotal": "USD656.79",
+        "id": "ImmNGoHljG0LS0DBt6kpt500D",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD662.00",
+          "pricePerMile": "USD0.1271121352",
+          "totalPrice": "USD661.79"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T14:05-07:00",
+              "departure": "2026-08-10T10:55-04:00",
+              "flights": [
+                "B61487"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 370
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-18T06:54-04:00",
+              "departure": "2026-08-17T22:15-07:00",
+              "flights": [
+                "B6488"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 339,
+              "ext": {
+                "warnings": {
+                  "types": [
+                    "OVERNIGHT"
+                  ],
+                  "overnight": true
+                }
+              }
+            }
+          ],
+          "carriers": [
+            {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          ],
+          "singleCarrier": {
+            "code": "B6",
+            "shortName": "JetBlue"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD661.79"
+          }
+        ],
+        "displayTotal": "USD661.79",
+        "id": "ImmNGoHljG0LS0DBt6kpt500E",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD662.00",
+          "pricePerMile": "USD0.1271121352",
+          "totalPrice": "USD661.79"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T19:06-07:00",
+              "departure": "2026-08-10T15:55-04:00",
+              "flights": [
+                "B6487"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 371
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-18T06:54-04:00",
+              "departure": "2026-08-17T22:15-07:00",
+              "flights": [
+                "B6488"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 339,
+              "ext": {
+                "warnings": {
+                  "types": [
+                    "OVERNIGHT"
+                  ],
+                  "overnight": true
+                }
+              }
+            }
+          ],
+          "carriers": [
+            {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          ],
+          "singleCarrier": {
+            "code": "B6",
+            "shortName": "JetBlue"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD661.79"
+          }
+        ],
+        "displayTotal": "USD661.79",
+        "id": "ImmNGoHljG0LS0DBt6kpt500F",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD687.00",
+          "pricePerMile": "USD0.1319124424",
+          "totalPrice": "USD686.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T13:58-07:00",
+              "departure": "2026-08-10T10:50-04:00",
+              "flights": [
+                "DL2004"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 368
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T23:51-04:00",
+              "departure": "2026-08-17T15:20-07:00",
+              "flights": [
+                "DL2166"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 331
+            }
+          ],
+          "carriers": [
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "DL",
+            "shortName": "Delta"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD686.80"
+          }
+        ],
+        "displayTotal": "USD686.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt500H",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD687.00",
+          "pricePerMile": "USD0.1319124424",
+          "totalPrice": "USD686.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T13:58-07:00",
+              "departure": "2026-08-10T10:50-04:00",
+              "flights": [
+                "DL2004"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 368
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-18T05:30-04:00",
+              "departure": "2026-08-17T21:00-07:00",
+              "flights": [
+                "DL507"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 330,
+              "ext": {
+                "warnings": {
+                  "types": [
+                    "OVERNIGHT"
+                  ],
+                  "overnight": true
+                }
+              }
+            }
+          ],
+          "carriers": [
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "DL",
+            "shortName": "Delta"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD686.80"
+          }
+        ],
+        "displayTotal": "USD686.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt500G",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD698.00",
+          "pricePerMile": "USD0.1340245776",
+          "totalPrice": "USD697.79"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T13:58-07:00",
+              "departure": "2026-08-10T10:50-04:00",
+              "flights": [
+                "DL2004"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 368
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T15:02-04:00",
+              "departure": "2026-08-17T06:25-07:00",
+              "flights": [
+                "DL639"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 337
+            }
+          ],
+          "carriers": [
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "DL",
+            "shortName": "Delta"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD697.79"
+          }
+        ],
+        "displayTotal": "USD697.79",
+        "id": "ImmNGoHljG0LS0DBt6kpt500I",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD702.00",
+          "pricePerMile": "USD0.1347926268",
+          "totalPrice": "USD701.79"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T14:05-07:00",
+              "departure": "2026-08-10T10:55-04:00",
+              "flights": [
+                "B61487"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 370
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T14:40-04:00",
+              "departure": "2026-08-17T06:00-07:00",
+              "flights": [
+                "B6888"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 340
+            }
+          ],
+          "carriers": [
+            {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          ],
+          "singleCarrier": {
+            "code": "B6",
+            "shortName": "JetBlue"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD701.79"
+          }
+        ],
+        "displayTotal": "USD701.79",
+        "id": "ImmNGoHljG0LS0DBt6kpt500J",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD702.00",
+          "pricePerMile": "USD0.1347926268",
+          "totalPrice": "USD701.79"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T19:06-07:00",
+              "departure": "2026-08-10T15:55-04:00",
+              "flights": [
+                "B6487"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 371
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T14:40-04:00",
+              "departure": "2026-08-17T06:00-07:00",
+              "flights": [
+                "B6888"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 340
+            }
+          ],
+          "carriers": [
+            {
+              "code": "B6",
+              "shortName": "JetBlue"
+            }
+          ],
+          "singleCarrier": {
+            "code": "B6",
+            "shortName": "JetBlue"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD701.79"
+          }
+        ],
+        "displayTotal": "USD701.79",
+        "id": "ImmNGoHljG0LS0DBt6kpt500K",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD767.00",
+          "pricePerMile": "USD0.1472734255",
+          "totalPrice": "USD766.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:37-07:00",
+              "departure": "2026-08-10T06:25-04:00",
+              "flights": [
+                "DL479"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 372
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T19:25-04:00",
+              "departure": "2026-08-17T10:47-07:00",
+              "flights": [
+                "DL437"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 338
+            }
+          ],
+          "carriers": [
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "DL",
+            "shortName": "Delta"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD766.80"
+          }
+        ],
+        "displayTotal": "USD766.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt500L",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD877.00",
+          "pricePerMile": "USD0.1683947773",
+          "totalPrice": "USD876.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T13:58-07:00",
+              "departure": "2026-08-10T10:50-04:00",
+              "flights": [
+                "DL2004"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 368
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T19:25-04:00",
+              "departure": "2026-08-17T10:47-07:00",
+              "flights": [
+                "DL437"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 338
+            }
+          ],
+          "carriers": [
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "DL",
+            "shortName": "Delta"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD876.80"
+          }
+        ],
+        "displayTotal": "USD876.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt500M",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD922.00",
+          "pricePerMile": "USD0.1770353303",
+          "totalPrice": "USD921.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:35-07:00",
+              "departure": "2026-08-10T06:21-04:00",
+              "flights": [
+                "UA360"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 374
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T23:51-04:00",
+              "departure": "2026-08-17T15:20-07:00",
+              "flights": [
+                "DL2166"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 331
+            }
+          ],
+          "carriers": [
+            {
+              "code": "UA",
+              "shortName": "United"
+            },
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "*",
+            "shortName": "Multiple Carriers"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD921.80"
+          }
+        ],
+        "displayTotal": "USD921.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt500O",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD922.00",
+          "pricePerMile": "USD0.1770353303",
+          "totalPrice": "USD921.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:35-07:00",
+              "departure": "2026-08-10T06:21-04:00",
+              "flights": [
+                "UA360"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 374
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-18T05:30-04:00",
+              "departure": "2026-08-17T21:00-07:00",
+              "flights": [
+                "DL507"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 330,
+              "ext": {
+                "warnings": {
+                  "types": [
+                    "OVERNIGHT"
+                  ],
+                  "overnight": true
+                }
+              }
+            }
+          ],
+          "carriers": [
+            {
+              "code": "UA",
+              "shortName": "United"
+            },
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "*",
+            "shortName": "Multiple Carriers"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD921.80"
+          }
+        ],
+        "displayTotal": "USD921.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt500N",
+        "passengerCount": 1
+      },
+      {
+        "ext": {
+          "price": "USD927.00",
+          "pricePerMile": "USD0.1779953918",
+          "totalPrice": "USD926.80"
+        },
+        "itinerary": {
+          "ext": {
+            "dominantCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            }
+          },
+          "slices": [
+            {
+              "origin": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "destination": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "arrival": "2026-08-10T09:35-07:00",
+              "departure": "2026-08-10T06:21-04:00",
+              "flights": [
+                "UA360"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 374
+            },
+            {
+              "origin": {
+                "code": "LAX",
+                "name": "Los Angeles International"
+              },
+              "destination": {
+                "code": "BOS",
+                "name": "Boston Edward L. Logan International"
+              },
+              "arrival": "2026-08-17T15:02-04:00",
+              "departure": "2026-08-17T06:25-07:00",
+              "flights": [
+                "DL639"
+              ],
+              "cabins": [
+                "COACH"
+              ],
+              "segments": [
+                {
+                  "pricings": [
+                    {
+                      "paxCount": 1
+                    }
+                  ]
+                }
+              ],
+              "duration": 337
+            }
+          ],
+          "carriers": [
+            {
+              "code": "UA",
+              "shortName": "United"
+            },
+            {
+              "code": "DL",
+              "shortName": "Delta"
+            }
+          ],
+          "singleCarrier": {
+            "code": "*",
+            "shortName": "Multiple Carriers"
+          },
+          "distance": {
+            "units": "MI",
+            "value": 5208
+          }
+        },
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              }
+            },
+            "displayPrice": "USD926.80"
+          }
+        ],
+        "displayTotal": "USD926.80",
+        "id": "ImmNGoHljG0LS0DBt6kpt500P",
+        "passengerCount": 1
+      }
+    ],
+    "minPrice": "USD440.00",
+    "solutionCount": 32
+  },
+  "warningsItinerary": [
+    {},
+    {
+      "groups": [
+        {
+          "label": "OVERNIGHT",
+          "minPrice": "USD440.00",
+          "minPriceInSummary": true
+        }
+      ]
+    }
+  ],
+  "id": "gkQQAy5l4RCRsIK6W0kdh2",
+  "session": "lPo0kdh2cF4PEzJ1orGoF1Ofm",
+  "solutionCount": 32,
+  "solutionSet": "0KYlkNrxO26LLyLTRqd8oDC"
+}
+
+--batch_4pyPNaVO99QAxfmnmTN7khrXla0C1Sf3--

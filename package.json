@@ -1,0 +1,68 @@
+{
+  "name": "itamatrix",
+  "version": "0.1.0",
+  "description": "CLI for ITA Matrix flight search",
+  "type": "module",
+  "bin": {
+    "itamatrix": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "docs",
+    "skills",
+    "DESIGN.md",
+    "README.md"
+  ],
+  "keywords": [
+    "ita-matrix",
+    "flights",
+    "airfare",
+    "cli",
+    "travel"
+  ],
+  "license": "MIT",
+  "author": "Eran Krakovsky",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekrako/itamatrix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ekrako/itamatrix/issues"
+  },
+  "homepage": "https://github.com/ekrako/itamatrix#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "gen:skill": "tsx scripts/gen-skill.ts",
+    "gen:skill:check": "tsx scripts/gen-skill.ts --check",
+    "lint:md": "markdownlint-cli2 \"**/*.md\"",
+    "prepare": "pre-commit install || true",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.5",
+    "commander": "^12.1.0",
+    "playwright": "^1.49.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/exec": "^7.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^22.10.0",
+    "markdownlint-cli2": "^0.15.0",
+    "semantic-release": "^25.0.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

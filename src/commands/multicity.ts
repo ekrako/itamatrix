@@ -1,0 +1,84 @@
+import { runMultiCity } from "../browser/session.js";
+import { withCache } from "../cache.js";
+import { normalize } from "../render/normalize.js";
+import { renderJson } from "../render/json.js";
+import { renderTable } from "../render/table.js";
+import {
+  type Cabin,
+  type MultiCitySpec,
+  type Slice,
+  type StopLimit,
+} from "../model/spec.js";
+import {
+  requireIsoDate,
+  requirePageLimit,
+  resolveCacheOptions,
+  validateTripControls,
+  type CacheControlOptions,
+  type OutputFormat,
+} from "./shared.js";
+
+export interface MultiCityCommandOptions extends CacheControlOptions {
+  legs: string[]; // each "ORIGIN:DEST:YYYY-MM-DD"
+  adults: number;
+  limit: number;
+  cabin?: string;
+  stops?: string;
+  extraStops?: string;
+  routing?: string;
+  ext?: string;
+  format: OutputFormat;
+  headful?: boolean;
+}
+
+export async function runMultiCityCommand(opts: MultiCityCommandOptions): Promise<string> {
+  const slices = parseLegs(opts);
+  validateTripControls(opts);
+  requirePageLimit(opts.limit);
+
+  const spec: MultiCitySpec = {
+    slices,
+    adults: opts.adults,
+    limit: opts.limit,
+    cabin: opts.cabin as Cabin | undefined,
+    stops: opts.stops as StopLimit | undefined,
+    extraStops: opts.extraStops as StopLimit | undefined,
+  };
+
+  const response = await withCache("multicity", spec, resolveCacheOptions(opts), () =>
+    runMultiCity(spec, { headful: opts.headful }),
+  );
+  const result = normalize(response, opts.limit);
+  return opts.format === "json" ? renderJson(result) : renderTable(result);
+}
+
+/** Parses `--leg ORIGIN:DEST:DATE` flags into slices; `--routing`/`--ext` apply to all. */
+export function parseLegs(opts: MultiCityCommandOptions): Slice[] {
+  if (!opts.legs || opts.legs.length < 2) {
+    throw new Error("multicity needs at least 2 --leg ORIGIN:DEST:DATE values");
+  }
+  return opts.legs.map((raw, i) => toSlice(raw, i, opts));
+}
+
+function toSlice(raw: string, index: number, opts: MultiCityCommandOptions): Slice {
+  const parts = raw.split(":");
+  if (parts.length !== 3) {
+    throw new Error(
+      `--leg #${index + 1} must be ORIGIN:DEST:YYYY-MM-DD, got "${raw}"`,
+    );
+  }
+  const origin = parts[0]!.trim();
+  const dest = parts[1]!.trim();
+  const date = parts[2]!.trim();
+  if (!origin || !dest) {
+    throw new Error(`--leg #${index + 1} is missing an origin or destination`);
+  }
+  requireIsoDate(date, `--leg #${index + 1} date`);
+  return {
+    origin: origin.toUpperCase(),
+    dest: dest.toUpperCase(),
+    departDate: date,
+    routing: opts.routing,
+    ext: opts.ext,
+  };
+}
