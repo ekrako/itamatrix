@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/ekrako/itamatrix/compare/v1.0.2...v1.0.3) (2026-06-24)
+
+### Bug Fixes
+
+* drive multi-city form after Matrix UI drift ([efec6e7](https://github.com/ekrako/itamatrix/commit/efec6e79401c6aa5ed34e1a42c6dca3fbf93b823))
+
 ## [1.0.2](https://github.com/ekrako/itamatrix/compare/v1.0.1...v1.0.2) (2026-06-23)
 
 ### Bug Fixes
