@@ -64,6 +64,17 @@ grammar before constructing codes. Rules of thumb:
 - The `f` faring grammar is community-documented, not official — let Matrix
   validate. Don't over-restrict locally.
 
+### High-leverage patterns (see the reference doc's "Power-user strategies")
+
+- **Force a stopover/overnight** — Matrix has no stopover command; fake it with a
+  big minimum connection. "Overnight in Tokyo" → `--routing X:NRT --ext "MINCONNECT 12:00"`;
+  24 h+ stopover → `MINCONNECT 30:00`.
+- **Mileage credit / specific metal** — force operating carrier in `--routing` (`O:LH+`)
+  and the crediting program via `--ext "ALLIANCE star-alliance"`.
+- **Upgrade/earning fare buckets** — pin booking class with `--ext "f bc=w|bc=v"`.
+- **Time format gotcha**: `--ext` uses `h:mm` (`MINCONNECT 12:00`); the inline
+  `--routing / minconnect 720` form uses raw minutes. Prefer `--ext`.
+
 ## Workflow
 
 1. Parse the request: route(s), dates, travelers, and any constraints.
@@ -165,6 +176,13 @@ itamatrix --json search BOS LON --depart 2026-08-15 \
 itamatrix --json multicity \
   --leg JFK:NRT:2026-08-10 --leg NRT:SIN:2026-08-15 --leg SIN:JFK:2026-08-20 \
   --ext "-OVERNIGHTS"
+```
+
+> "Boston to Singapore in October, but I want a long overnight stopover in Tokyo."
+
+```bash
+itamatrix --json search BOS SIN --depart 2026-10-10 \
+  --routing "X:NRT" --ext "MINCONNECT 12:00; MAXCONNECT 30:00"
 ```
 
 > "What's the cheapest week in August to do a 7-night trip BOS→LAX on United?"

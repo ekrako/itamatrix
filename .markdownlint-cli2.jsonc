@@ -6,7 +6,9 @@
     // Allow inline HTML — the generated-block markers in SKILL.md are HTML comments.
     "MD033": false,
     // First line need not be a top-level heading (frontmatter precedes it).
-    "MD041": false
+    "MD041": false,
+    // CHANGELOG repeats "Bug Fixes"/"Features" across releases; only flag dupes under the same parent.
+    "MD024": { "siblings_only": true }
   },
   "globs": ["**/*.md"],
   "ignores": ["node_modules", "dist"]

@@ -41,6 +41,8 @@ Define which carriers / airports / operators a slice may use, and in what order.
 | `C:XX` | force **marketing** carrier | `C:BA` |
 | `O:XX` | force **operating** carrier | `O:AA` |
 | `X:AAA` | **require** connection at airport | `X:DFW` |
+| `X` | any single connection point | `UA X UA` |
+| `X?` | nonstop **or** one connection | `X?` |
 | `N:` | nonstop only (no connections) | `N:` |
 | `F:` | direct (single flight number, stops allowed) | `F:` |
 
@@ -96,6 +98,9 @@ pipe-(`|`)-separated.
 | No red-eyes | `-REDEYES` | `-REDEYES` | exclude red-eye flights |
 | No overnights | `-OVERNIGHTS` | `-OVERNIGHTS` | exclude overnight layovers |
 | No props | `-PROPS` | `-PROPS` | exclude propeller aircraft |
+| No airport change | `-CHANGE` | `-CHANGE` | exclude connections that change airports in a city |
+| No trains | `-TRAIN` | `-TRAIN` | exclude rail segments |
+| No helicopters | `-HELICOPTER` | `-HELICOPTER` | exclude helicopter segments |
 
 ### Faring codes (`f` / booking class / fare basis)
 
@@ -123,7 +128,27 @@ pipe-(`|`)-separated.
 
 ---
 
-## 3. Notes for the skill
+## 3. Power-user strategies (FlyerTalk / community)
+
+Higher-leverage patterns that combine the primitives above:
+
+- **Force a stopover / overnight.** Matrix has no "stopover" command — fake it with a large
+  minimum connection. `MINCONNECT 12:00` forces an overnight layover; values above `24:00`
+  (e.g. `MINCONNECT 30:00`) force a 24 h+ stopover. Pin *where* with `X:CITY` in Routing.
+  Pair with `MAXCONNECT` to bound it: `X:NRT` + `MINCONNECT 20:00; MAXCONNECT 30:00`.
+- **Split marketing vs operating for mileage credit.** Force the metal you want with `O:` in
+  Routing and the program you want to credit with marketing carrier / `ALLIANCE`. E.g. fly
+  Lufthansa metal but ticket via a partner: Routing `O:LH+`, Extension `ALLIANCE star-alliance`.
+- **Target a booking class for upgrades / earning.** `f bc=...` pins the prime booking code
+  (fare buckets differ in price, upgrade eligibility, and miles earned). `f bc=w|bc=v` allows
+  either. Combine with `+CABIN` to keep the displayed cabin honest.
+- **Mileage-run / distance tuning.** `MINMILES`/`MAXMILES` shape itinerary distance; useful for
+  hitting an elite-qualifying threshold or avoiding wasteful backtracking.
+- **Consider nearby airports.** Matrix's UI accepts comma-separated origins/destinations
+  (e.g. `BOS,PVD,MHT`) and secondary airports are often materially cheaper; if a single-field
+  comma string is rejected, fall back to one search per airport and compare.
+
+## 4. Notes for the skill
 
 - **Validate field placement**: path-shaped intent → Routing; filter/fare intent → Extension.
 - **Cabin two ways**: the top-level `--cabin` (search option) sets the *displayed* cabin;
