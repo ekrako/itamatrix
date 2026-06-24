@@ -127,8 +127,8 @@ export type BookingDetailsResponse = Record<string, unknown>;
 
 export function parseBookingDetails(raw: unknown): BookingDetailsResponse {
   const root = unwrapResponse(raw);
-  if (!root || typeof root !== "object") {
-    throw new Error("Itinerary-detail response was not a JSON object");
+  if (!root || typeof root !== "object" || Array.isArray(root) || !("bookingDetails" in root)) {
+    throw new Error("Itinerary-detail response did not contain bookingDetails");
   }
   return root as BookingDetailsResponse;
 }
