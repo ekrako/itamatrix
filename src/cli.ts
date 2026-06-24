@@ -83,6 +83,10 @@ program
   .option("--carriers <list>", "comma-separated carriers, e.g. UA,AA (sugar for --routing)")
   .option("--routing <codes>", "ITA routing codes (path) — see docs/ROUTING_CODES.md")
   .option("--ext <codes>", "ITA extension codes (faring/filters) — see docs/ROUTING_CODES.md")
+  .option(
+    "--details",
+    "also fetch the top result's fare construction + Google Flights link (live, skips cache)",
+  )
   .option("--headful", "show the browser window (debug)")
   .action(async (origin: string, dest: string, cmdOpts, command) => {
     const globals = command.parent.opts();
@@ -98,6 +102,7 @@ program
       carriers: cmdOpts.carriers,
       routing: cmdOpts.routing,
       ext: cmdOpts.ext,
+      details: cmdOpts.details,
       headful: cmdOpts.headful,
       format: resolveFormat(globals.json, globals.table),
       cache: globals.cache,
@@ -123,6 +128,10 @@ program
   .option("--carriers <list>", "comma-separated carriers, e.g. UA,AA (sugar for --routing)")
   .option("--routing <codes>", "ITA routing codes applied to every leg")
   .option("--ext <codes>", "ITA extension codes applied to every leg")
+  .option(
+    "--details",
+    "also fetch the top result's fare construction + Google Flights link (live, skips cache)",
+  )
   .option("--headful", "show the browser window (debug)")
   .action(async (cmdOpts, command) => {
     const globals = command.parent.opts();
@@ -137,6 +146,7 @@ program
         routing: cmdOpts.routing ?? carriersToRouting(cmdOpts.carriers),
         ext: cmdOpts.ext,
         format: resolveFormat(globals.json, globals.table),
+        details: cmdOpts.details,
         headful: cmdOpts.headful,
         cache: globals.cache,
         cacheTtlMinutes: globals.cacheTtl,

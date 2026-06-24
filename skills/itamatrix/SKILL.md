@@ -47,6 +47,25 @@ flag can't express it.
 | "only UA and AA" (simple) | `--carriers UA,AA` |
 | number of travelers | `--adults N` |
 | how many results | `--limit N` (1–25 for search/multicity) |
+| fare construction + Google Flights link | `--details` (search/multicity) |
+
+## Fare construction & Google Flights link (`--details`)
+
+`--details` (on `search` and `multicity`) opens the **top result's** itinerary
+detail page and adds two things to the output:
+
+- **Fare Construction** — the NUC fare-basis breakdown ITA labels "can be useful
+  to travel agents" (e.g. `BOS B6 LON 70.00OL8LBVL1 NUC 70.00 END ROE 1.00 XT
+  …`). Surface it verbatim; agents/ticketing desks read it directly.
+- **Open in Google Flights** — the detail page's deep link
+  (`google.com/travel/flights?tfs=…&source=ita_matrix`) for the same itinerary.
+
+It costs an extra page navigation and **bypasses the cache** (the link needs the
+live solution session), so only pass it when the user wants the fare detail or a
+hand-off link. Detail is best-effort: if the page can't be opened the search
+results still return, just without the `details` block. In JSON it's a top-level
+`details: { fareConstruction, googleFlightsUrl }`; in table output it's a footer
+under the results. **Show both to the user when present.**
 
 ## Encode advanced intent → routing / extension codes
 
@@ -122,6 +141,7 @@ Search one-way or round-trip flights
 | `--carriers <list>` | comma-separated carriers, e.g. UA,AA (sugar for --routing) |
 | `--routing <codes>` | ITA routing codes (path) — see docs/ROUTING_CODES.md |
 | `--ext <codes>` | ITA extension codes (faring/filters) — see docs/ROUTING_CODES.md |
+| `--details` | also fetch the top result's fare construction + Google Flights link (live, skips cache) |
 | `--headful` | show the browser window (debug) |
 
 ### `multicity`
@@ -139,6 +159,7 @@ Search a multi-city itinerary (N legs)
 | `--carriers <list>` | comma-separated carriers, e.g. UA,AA (sugar for --routing) |
 | `--routing <codes>` | ITA routing codes applied to every leg |
 | `--ext <codes>` | ITA extension codes applied to every leg |
+| `--details` | also fetch the top result's fare construction + Google Flights link (live, skips cache) |
 | `--headful` | show the browser window (debug) |
 
 ### `calendar <origin> <dest>`
@@ -190,4 +211,11 @@ itamatrix --json search BOS SIN --depart 2026-10-10 \
 ```bash
 itamatrix --json calendar BOS LAX \
   --depart-range 2026-08-01:2026-08-31 --trip-length 7 --carriers UA
+```
+
+> "Cheapest BOS→LON next August, and give me the fare construction and a Google Flights link for the top one."
+
+```bash
+itamatrix --json search BOS LON --depart 2026-08-15 --details
+# → result.details.fareConstruction[] + result.details.googleFlightsUrl
 ```

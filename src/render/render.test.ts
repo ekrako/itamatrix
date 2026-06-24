@@ -137,4 +137,23 @@ describe("renderTable", () => {
     const empty = normalize(parseSearchResponse({ solutionList: { solutions: [] } }));
     expect(stripAnsi(renderTable(empty))).toMatch(/No flights found/);
   });
+
+  it("appends a fare-construction + Google Flights footer when details are present", () => {
+    const result = {
+      ...normalize(parseSearchResponse(payload)),
+      details: {
+        fareConstruction: ["BOS B6 LON 70.00 NUC 70.00 END ROE 1.00"],
+        googleFlightsUrl: "https://www.google.com/travel/flights?tfs=ABC&source=ita_matrix",
+      },
+    };
+    const out = stripAnsi(renderTable(result));
+    expect(out).toContain("Fare Construction (can be useful to travel agents):");
+    expect(out).toContain("BOS B6 LON 70.00 NUC 70.00 END ROE 1.00");
+    expect(out).toContain("Open in Google Flights: https://www.google.com/travel/flights?tfs=ABC");
+  });
+
+  it("omits the footer when there are no details", () => {
+    const out = stripAnsi(renderTable(normalize(parseSearchResponse(payload))));
+    expect(out).not.toContain("Fare Construction");
+  });
 });

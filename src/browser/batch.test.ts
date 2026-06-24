@@ -1,13 +1,34 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { extractCalendarPayload, extractSearchPayload } from "./batch.js";
+import {
+  extractBookingDetailsPayload,
+  extractCalendarPayload,
+  extractSearchPayload,
+} from "./batch.js";
 import { parseSearchResponse } from "../model/types.js";
 
 const batchBody = readFileSync(
   fileURLToPath(new URL("../../fixtures/batch_multipart.txt", import.meta.url)),
   "utf8",
 );
+
+const bookingBody = readFileSync(
+  fileURLToPath(new URL("../../fixtures/booking_details_multipart.txt", import.meta.url)),
+  "utf8",
+);
+
+describe("extractBookingDetailsPayload", () => {
+  it("pulls the bookingDetails payload out of a detail-page /batch body", () => {
+    const payload = extractBookingDetailsPayload(bookingBody) as { bookingDetails: unknown };
+    expect(payload).not.toBeNull();
+    expect(payload.bookingDetails).toBeTypeOf("object");
+  });
+
+  it("returns null when no part carries bookingDetails", () => {
+    expect(extractBookingDetailsPayload('--b\r\n\r\n{"solutionList":{}}\r\n--b--')).toBeNull();
+  });
+});
 
 describe("extractSearchPayload", () => {
   it("pulls the solutionList payload out of a multipart /batch body", () => {

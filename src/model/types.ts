@@ -117,6 +117,50 @@ export function parseCalendarResponse(raw: unknown): CalendarResponse {
   return root as CalendarResponse;
 }
 
+/**
+ * The itinerary-detail response is large and only partly documented, so we keep
+ * it opaque and deep-scan for the one field we surface — the fare construction
+ * (`bookingDetails…fareCalculations[].lines`), the NUC breakdown ITA shows under
+ * "Fare Construction (can be useful to travel agents)".
+ */
+export type BookingDetailsResponse = Record<string, unknown>;
+
+export function parseBookingDetails(raw: unknown): BookingDetailsResponse {
+  const root = unwrapResponse(raw);
+  if (!root || typeof root !== "object") {
+    throw new Error("Itinerary-detail response was not a JSON object");
+  }
+  return root as BookingDetailsResponse;
+}
+
+/** Deep-scan for every `fareCalculations[].lines` string, deduped, in order. */
+export function collectFareConstruction(node: unknown): string[] {
+  const lines: string[] = [];
+  const walk = (o: unknown): void => {
+    if (Array.isArray(o)) {
+      o.forEach(walk);
+      return;
+    }
+    if (!o || typeof o !== "object") return;
+    for (const [key, value] of Object.entries(o)) {
+      if (key === "fareCalculations") collectLines(value, lines);
+      walk(value);
+    }
+  };
+  walk(node);
+  return [...new Set(lines)];
+}
+
+function collectLines(calculations: unknown, out: string[]): void {
+  if (!Array.isArray(calculations)) return;
+  for (const calc of calculations) {
+    const calcLines = (calc as { lines?: unknown })?.lines;
+    if (Array.isArray(calcLines)) {
+      out.push(...calcLines.filter((v): v is string => typeof v === "string"));
+    }
+  }
+}
+
 function unwrapResponse(raw: unknown): unknown {
   return raw && typeof raw === "object" && "response" in raw
     ? (raw as { response: unknown }).response

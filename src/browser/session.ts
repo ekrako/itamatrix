@@ -1,10 +1,16 @@
 import { chromium, type Browser, type Page } from "playwright";
 import type { CalendarSpec, MultiCitySpec, SearchSpec } from "../model/spec.js";
 import { driveCalendarForm, driveMultiCityForm, driveSearchForm } from "./forms.js";
-import { extractCalendarPayload, extractSearchPayload } from "./batch.js";
 import {
+  extractBookingDetailsPayload,
+  extractCalendarPayload,
+  extractSearchPayload,
+} from "./batch.js";
+import {
+  parseBookingDetails,
   parseCalendarResponse,
   parseSearchResponse,
+  type BookingDetailsResponse,
   type CalendarResponse,
   type SearchResponse,
 } from "../model/types.js";
@@ -72,6 +78,34 @@ export async function runCalendar(
   );
 }
 
+/** A priced itinerary's detail, captured from the Matrix detail page. */
+export interface DetailCapture {
+  bookingDetails: BookingDetailsResponse;
+  googleFlightsUrl?: string;
+}
+
+export interface SearchWithDetails {
+  search: SearchResponse;
+  /** null when the detail page could not be opened/parsed (search still returns). */
+  details: DetailCapture | null;
+}
+
+/** Like {@link runSearch}, then opens the top result's detail page for its fare construction + Google Flights link. */
+export function runSearchWithDetails(
+  spec: SearchSpec,
+  opts: SessionOptions = {},
+): Promise<SearchWithDetails> {
+  return runDriverWithDetails((page) => driveSearchForm(page, spec), opts);
+}
+
+/** Multi-city counterpart of {@link runSearchWithDetails}. */
+export function runMultiCityWithDetails(
+  spec: MultiCitySpec,
+  opts: SessionOptions = {},
+): Promise<SearchWithDetails> {
+  return runDriverWithDetails((page) => driveMultiCityForm(page, spec), opts);
+}
+
 /**
  * Shared driver: launch Chromium, drive the form, intercept the first `/batch`
  * response that `match` accepts, and parse it. All P1–P3 commands share this;
@@ -109,6 +143,91 @@ async function runDriver<T>(
     // process can exit immediately instead of waiting out `timeoutMs`.
     waiter.cancel();
     await browser.close();
+  }
+}
+
+/**
+ * Search, then drill into the top result's detail page. The detail capture is
+ * best-effort: if the row can't be opened or the `bookingDetails` part never
+ * arrives, `details` is null and the search results are still returned. Reuses
+ * the same browser/page so the detail page inherits the live solution session.
+ */
+async function runDriverWithDetails(
+  drive: (page: Page) => Promise<void>,
+  opts: SessionOptions,
+): Promise<SearchWithDetails> {
+  const timeoutMs = opts.timeoutMs ?? DEFAULT_TIMEOUT_MS;
+  const browser = await launch(opts.headful ?? false);
+  const page = await newStealthPage(browser);
+  const waiter = waitForResponse(page, extractSearchPayload, timeoutMs);
+  waiter.promise.catch(() => {});
+  try {
+    try {
+      await page.goto(SEARCH_URL, { waitUntil: "domcontentloaded", timeout: 60_000 });
+      await drive(page);
+    } catch {
+      throw new Error(
+        "Failed to drive the Matrix search form (the site may have changed). Run with --headful to debug.",
+      );
+    }
+
+    const search = parseSearchResponse(await waiter.promise);
+    waiter.cancel();
+    const details = await captureTopDetails(page, timeoutMs);
+    return { search, details };
+  } finally {
+    waiter.cancel();
+    await browser.close();
+  }
+}
+
+/**
+ * Opens the first results row and waits for its `bookingDetails` part, then reads
+ * the "Open in Google Flights" link from the DOM (it's rendered client-side, not
+ * in the API). Returns null on any failure — detail is an enrichment, never fatal.
+ */
+async function captureTopDetails(
+  page: Page,
+  timeoutMs: number,
+): Promise<DetailCapture | null> {
+  const waiter = waitForResponse(page, extractBookingDetailsPayload, timeoutMs);
+  waiter.promise.catch(() => {});
+  try {
+    if (!(await openFirstSolution(page))) return null;
+    const bookingDetails = parseBookingDetails(await waiter.promise);
+    return { bookingDetails, googleFlightsUrl: await readGoogleFlightsUrl(page) };
+  } catch {
+    return null;
+  } finally {
+    waiter.cancel();
+  }
+}
+
+/** Clicks into the first itinerary; true if a clickable row was found. */
+async function openFirstSolution(page: Page): Promise<boolean> {
+  const candidates = [
+    page.getByRole("link").filter({ hasText: /\$|USD|\d:\d/ }).first(),
+    page.locator("td a, .mat-row a, [role=row] a").first(),
+    page.locator("[role=row]").filter({ hasText: /\$|USD/ }).nth(1),
+  ];
+  for (const candidate of candidates) {
+    if ((await candidate.count()) === 0) continue;
+    try {
+      await candidate.click({ timeout: 8_000 });
+      return true;
+    } catch {
+      // Try the next selector; the results DOM has drifted before.
+    }
+  }
+  return false;
+}
+
+async function readGoogleFlightsUrl(page: Page): Promise<string | undefined> {
+  const link = page.getByRole("link", { name: /google flights/i }).first();
+  try {
+    return (await link.getAttribute("href", { timeout: 8_000 })) ?? undefined;
+  } catch {
+    return undefined;
   }
 }
 

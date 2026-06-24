@@ -12,6 +12,17 @@ export function extractSearchPayload(batchBody: string): unknown | null {
 }
 
 /**
+ * The itinerary-detail page issues its own `/batch` whose part carries a
+ * `bookingDetails` body (priced solution: fare construction, taxes, segments).
+ */
+export function extractBookingDetailsPayload(batchBody: string): unknown | null {
+  for (const obj of jsonObjects(batchBody)) {
+    if (obj && typeof obj === "object" && "bookingDetails" in obj) return obj;
+  }
+  return null;
+}
+
+/**
  * Keys the price-calendar ("lowest fare") response is expected to carry. The
  * exact shape is unconfirmed (no captured fixture yet — DESIGN P3); this matches
  * any plausible calendar summarizer, and `normalizeCalendar` deep-scans for

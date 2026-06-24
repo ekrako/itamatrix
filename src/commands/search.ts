@@ -1,6 +1,6 @@
-import { runSearch } from "../browser/session.js";
+import { runSearch, runSearchWithDetails } from "../browser/session.js";
 import { withCache } from "../cache.js";
-import { normalize } from "../render/normalize.js";
+import { normalize, type FlatResult } from "../render/normalize.js";
 import { renderJson } from "../render/json.js";
 import { renderTable } from "../render/table.js";
 import { type Cabin, type SearchSpec, type StopLimit } from "../model/spec.js";
@@ -9,6 +9,7 @@ import {
   requireIsoDate,
   requirePageLimit,
   resolveCacheOptions,
+  toItineraryDetails,
   validateTripControls,
   type CacheControlOptions,
   type OutputFormat,
@@ -30,6 +31,8 @@ export interface SearchCommandOptions extends CacheControlOptions {
   ext?: string;
   format: OutputFormat;
   headful?: boolean;
+  /** Also open the top result's detail page for fare construction + Google Flights link. */
+  details?: boolean;
 }
 
 export async function runSearchCommand(
@@ -53,11 +56,27 @@ export async function runSearchCommand(
     ext: opts.ext,
   };
 
+  const result = await search(spec, opts);
+  return opts.format === "json" ? renderJson(result) : renderTable(result);
+}
+
+/**
+ * `--details` needs a live browser session (it drills into the detail page using
+ * the in-flight solution session), so it bypasses the cache; the plain path stays
+ * cached.
+ */
+async function search(spec: SearchSpec, opts: SearchCommandOptions): Promise<FlatResult> {
+  if (opts.details) {
+    const { search: response, details } = await runSearchWithDetails(spec, {
+      headful: opts.headful,
+    });
+    const result = normalize(response, opts.limit);
+    return details ? { ...result, details: toItineraryDetails(details) } : result;
+  }
   const response = await withCache("search", spec, resolveCacheOptions(opts), () =>
     runSearch(spec, { headful: opts.headful }),
   );
-  const result = normalize(response, opts.limit);
-  return opts.format === "json" ? renderJson(result) : renderTable(result);
+  return normalize(response, opts.limit);
 }
 
 /** `--routing` wins; otherwise `--carriers UA,AA` becomes the routing `UA,AA+`. */

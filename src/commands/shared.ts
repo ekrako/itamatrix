@@ -4,7 +4,10 @@ import {
   type Cabin,
   type StopLimit,
 } from "../model/spec.js";
+import { collectFareConstruction } from "../model/types.js";
 import { DEFAULT_CACHE_TTL_MINUTES, type CacheOptions } from "../cache.js";
+import type { DetailCapture } from "../browser/session.js";
+import type { ItineraryDetails } from "../render/normalize.js";
 
 export type OutputFormat = "table" | "json";
 
@@ -91,6 +94,14 @@ export function carriersToRouting(carriers?: string): string | undefined {
     .filter(Boolean);
   if (!codes.length) return undefined;
   return codes.length === 1 ? `${codes[0]}+` : `(${codes.join(",")})+`;
+}
+
+/** Shapes a browser-captured top-result detail into the flat render view. */
+export function toItineraryDetails(capture: DetailCapture): ItineraryDetails {
+  return {
+    fareConstruction: collectFareConstruction(capture.bookingDetails),
+    googleFlightsUrl: capture.googleFlightsUrl,
+  };
 }
 
 export function requireIsoDate(value: string, flag: string): void {

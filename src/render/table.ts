@@ -1,6 +1,6 @@
 import Table from "cli-table3";
 import chalk from "chalk";
-import type { FlatResult, FlatSolution } from "./normalize.js";
+import type { FlatResult, FlatSolution, ItineraryDetails } from "./normalize.js";
 
 function fmtTime(iso: string): string {
   // "2026-08-10T06:21-04:00" -> "08-10 06:21"
@@ -52,5 +52,19 @@ export function renderTable(result: FlatResult): string {
     `${result.shown} of ${result.count} results` +
       (result.minPrice ? ` · from ${result.minPrice}` : ""),
   );
-  return `${header}\n${table.toString()}`;
+  const footer = result.details ? `\n${renderDetails(result.details)}` : "";
+  return `${header}\n${table.toString()}${footer}`;
+}
+
+/** Top-result detail footer: fare construction (for travel agents) + Google Flights link. */
+function renderDetails(details: ItineraryDetails): string {
+  const lines = [chalk.bold("\nTop result")];
+  if (details.fareConstruction.length) {
+    lines.push(chalk.dim("Fare Construction (can be useful to travel agents):"));
+    lines.push(...details.fareConstruction.map((l) => `  ${l}`));
+  }
+  if (details.googleFlightsUrl) {
+    lines.push(`${chalk.bold("Open in Google Flights:")} ${details.googleFlightsUrl}`);
+  }
+  return lines.join("\n");
 }
