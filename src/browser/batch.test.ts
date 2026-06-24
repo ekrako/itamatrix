@@ -22,6 +22,7 @@ describe("extractBookingDetailsPayload", () => {
   it("pulls the bookingDetails payload out of a detail-page /batch body", () => {
     const payload = extractBookingDetailsPayload(bookingBody) as { bookingDetails: unknown };
     expect(payload).not.toBeNull();
+    expect(payload.bookingDetails).not.toBeNull();
     expect(payload.bookingDetails).toBeTypeOf("object");
   });
 
