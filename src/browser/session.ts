@@ -211,8 +211,9 @@ async function openFirstSolution(page: Page): Promise<boolean> {
     page.locator("[role=row]").filter({ hasText: /\$|USD/ }).nth(1),
   ];
   for (const candidate of candidates) {
-    if ((await candidate.count()) === 0) continue;
     try {
+      // click() auto-waits for the element; no count() pre-check, which would
+      // skip a row that renders a moment later.
       await candidate.click({ timeout: 8_000 });
       return true;
     } catch {
