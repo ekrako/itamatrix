@@ -3,10 +3,23 @@ import { resolveRouting, runSearchCommand, type SearchCommandOptions } from "./s
 import type { SearchSpec } from "../model/spec.js";
 
 const captured: SearchSpec[] = [];
+const detailsCaptured: SearchSpec[] = [];
 vi.mock("../browser/session.js", () => ({
   runSearch: (spec: SearchSpec) => {
     captured.push(spec);
     return Promise.resolve({ solutionList: { solutions: [] } });
+  },
+  runSearchWithDetails: (spec: SearchSpec) => {
+    detailsCaptured.push(spec);
+    return Promise.resolve({
+      search: { solutionList: { solutions: [] } },
+      details: {
+        bookingDetails: {
+          tickets: [{ pricings: [{ fareCalculations: [{ lines: ["BOS UA LON 1 NUC 1"] }] }] }],
+        },
+        googleFlightsUrl: "https://www.google.com/travel/flights?tfs=Z&source=ita_matrix",
+      },
+    });
   },
 }));
 
@@ -163,6 +176,15 @@ describe("runSearchCommand spec wiring", () => {
     captured.length = 0;
     await runSearchCommand("BOS", "LAX", opts({ return: "2026-08-17", oneWay: true }));
     expect(captured[0]!.returnDate).toBeUndefined();
+  });
+
+  it("with --details, routes through the live path and folds in fare construction + GF link", async () => {
+    detailsCaptured.length = 0;
+    const out = await runSearchCommand("BOS", "LAX", opts({ details: true, format: "json" }));
+    expect(detailsCaptured).toHaveLength(1);
+    const parsed = JSON.parse(out);
+    expect(parsed.details.fareConstruction).toEqual(["BOS UA LON 1 NUC 1"]);
+    expect(parsed.details.googleFlightsUrl).toContain("google.com/travel/flights");
   });
 
   it("leaves advanced controls undefined when unset", async () => {

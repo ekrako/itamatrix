@@ -1,7 +1,12 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { parseSearchResponse } from "./types.js";
+import {
+  collectFareConstruction,
+  parseBookingDetails,
+  parseSearchResponse,
+} from "./types.js";
+import { extractBookingDetailsPayload } from "../browser/batch.js";
 import { normalize } from "../render/normalize.js";
 
 const fixture = JSON.parse(
@@ -18,6 +23,35 @@ describe("parseSearchResponse", () => {
   it("parses a payload wrapped under `response`", () => {
     const resp = parseSearchResponse({ response: fixture });
     expect(resp.solutionList.solutions.length).toBe(25);
+  });
+});
+
+const bookingFixture = readFileSync(
+  fileURLToPath(new URL("../../fixtures/booking_details_multipart.txt", import.meta.url)),
+  "utf8",
+);
+
+describe("collectFareConstruction", () => {
+  it("pulls the NUC fare-construction lines out of the live detail fixture", () => {
+    const details = parseBookingDetails(extractBookingDetailsPayload(bookingFixture));
+    const lines = collectFareConstruction(details);
+    expect(lines).toEqual([
+      "BOS B6 LON 70.00OL8LBVL1 NUC 70.00 END ROE 1.00 XT 23.40US 5.60AY 250.00YR 4.50XF BOS4.50",
+    ]);
+  });
+
+  it("dedupes repeated lines and ignores non-fareCalculations `lines`", () => {
+    const node = {
+      lines: ["NOT A FARE"],
+      tickets: [
+        { pricings: [{ fareCalculations: [{ lines: ["A NUC 1"] }, { lines: ["A NUC 1"] }] }] },
+      ],
+    };
+    expect(collectFareConstruction(node)).toEqual(["A NUC 1"]);
+  });
+
+  it("returns an empty array when there is no fare construction", () => {
+    expect(collectFareConstruction({ foo: { bar: [1, 2] } })).toEqual([]);
   });
 });
 

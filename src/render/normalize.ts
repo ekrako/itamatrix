@@ -21,11 +21,22 @@ export interface FlatSolution {
   slices: FlatSlice[];
 }
 
+/**
+ * Per-itinerary detail surfaced by `--details` (fetched only for the top result).
+ * `fareConstruction` is ITA's NUC breakdown ("can be useful to travel agents");
+ * `googleFlightsUrl` is the detail page's "Open in Google Flights" deep link.
+ */
+export interface ItineraryDetails {
+  fareConstruction: string[];
+  googleFlightsUrl?: string;
+}
+
 export interface FlatResult {
   count: number;
   shown: number;
   minPrice?: string;
   solutions: FlatSolution[];
+  details?: ItineraryDetails;
 }
 
 /**
@@ -36,6 +47,7 @@ function parseCarrier(flight?: string): string | undefined {
   return flight?.match(/^[A-Z0-9]{2}/)?.[0];
 }
 
+/** Flattens one Matrix solution into the agent-friendly {@link FlatSolution} view. */
 function flattenSolution(sol: Solution): FlatSolution {
   const slices: FlatSlice[] = sol.itinerary.slices.map((s) => ({
     origin: s.origin.code,

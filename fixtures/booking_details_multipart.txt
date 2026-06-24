@@ -1,0 +1,215 @@
+
+--batch_4rTPXEmdNZj1aTMjy4YwYgTS5kXGEY4R
+Content-Type: application/http
+Content-ID: <response-batch1365199492650886993+gapiRequest@googleapis.com>
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=UTF-8
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+
+{
+  "bookingDetails": {
+    "ext": {
+      "totalPrice": "USD353.50"
+    },
+    "itinerary": {
+      "distance": {
+        "units": "MI",
+        "value": 3272
+      },
+      "slices": [
+        {
+          "destination": {
+            "city": {
+              "name": "London"
+            },
+            "code": "LGW",
+            "name": "London Gatwick"
+          },
+          "ext": {
+            "warnings": "OVERNIGHT"
+          },
+          "origin": {
+            "city": {
+              "name": "Boston"
+            },
+            "code": "BOS",
+            "name": "Boston Edward L. Logan International"
+          },
+          "segments": [
+            {
+              "bookingInfos": [
+                {
+                  "bookingCode": "L",
+                  "cabin": "COACH"
+                }
+              ],
+              "carrier": {
+                "code": "B6",
+                "shortName": "JetBlue"
+              },
+              "destination": {
+                "city": {
+                  "name": "London"
+                },
+                "code": "LGW"
+              },
+              "flight": {
+                "number": 2104
+              },
+              "legs": [
+                {
+                  "aircraft": {
+                    "shortName": "Airbus A320"
+                  },
+                  "destination": {
+                    "city": {
+                      "name": "London"
+                    },
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  "origin": {
+                    "city": {
+                      "name": "Boston"
+                    },
+                    "code": "BOS"
+                  },
+                  "services": [
+                    {
+                      "amenities": [
+                        "Non-smoking"
+                      ]
+                    }
+                  ],
+                  "arrival": "2026-08-16T09:35+01:00",
+                  "departure": "2026-08-15T21:49-04:00",
+                  "duration": 406
+                }
+              ],
+              "origin": {
+                "city": {
+                  "name": "Boston"
+                },
+                "code": "BOS"
+              },
+              "arrival": "2026-08-16T09:35+01:00",
+              "departure": "2026-08-15T21:49-04:00",
+              "duration": 406
+            }
+          ],
+          "arrival": "2026-08-16T09:35+01:00",
+          "departure": "2026-08-15T21:49-04:00",
+          "stopCount": 0
+        }
+      ]
+    },
+    "pricings": [
+      {
+        "ext": {
+          "pax": {
+            "adults": 1
+          },
+          "totalPrice": "USD353.50"
+        },
+        "displayPrice": "USD353.50"
+      }
+    ],
+    "tickets": [
+      {
+        "pricings": [
+          {
+            "ext": {
+              "pax": {
+                "adults": 1
+              },
+              "taxTotals": [
+                {
+                  "tax": {
+                    "key": "0/0",
+                    "name": "United States Passenger Civil Aviation Security Service Fee"
+                  },
+                  "code": "AY",
+                  "totalDisplayPrice": "USD5.60"
+                },
+                {
+                  "tax": {
+                    "key": "0/1",
+                    "name": "US International Departure Tax"
+                  },
+                  "code": "US",
+                  "totalDisplayPrice": "USD23.40"
+                },
+                {
+                  "tax": {
+                    "key": "0/2",
+                    "name": "US Passenger Facility Charge"
+                  },
+                  "code": "XF",
+                  "totalDisplayPrice": "USD4.50"
+                },
+                {
+                  "tax": {
+                    "key": "0/3",
+                    "name": "B6 YR surcharge"
+                  },
+                  "code": "YR",
+                  "totalDisplayPrice": "USD250.00"
+                }
+              ],
+              "totalPrice": "USD353.50"
+            },
+            "fareCalculations": [
+              {
+                "lines": [
+                  "BOS B6 LON 70.00OL8LBVL1 NUC 70.00 END ROE 1.00 XT 23.40US 5.60AY 250.00YR 4.50XF BOS4.50"
+                ]
+              }
+            ],
+            "fares": [
+              {
+                "bookingInfos": [
+                  {
+                    "segment": {
+                      "destination": "LGW",
+                      "origin": "BOS"
+                    },
+                    "bookingCode": "L",
+                    "cabin": "COACH"
+                  }
+                ],
+                "ptcs": [
+                  "ADT"
+                ],
+                "carrier": "B6",
+                "code": "OL8LBVL1",
+                "destinationCity": "LON",
+                "displayAdjustedPrice": "USD70.00",
+                "key": "0/0",
+                "originCity": "BOS",
+                "tag": "ONE-WAY"
+              }
+            ],
+            "notes": [
+              "No changes may be made to this ticket after purchase.",
+              "This ticket is non-refundable."
+            ],
+            "displayPrice": "USD353.50"
+          }
+        ],
+        "displayPrice": "USD353.50"
+      }
+    ],
+    "displayTotal": "USD353.50",
+    "id": "H8kWk376eL6TBRW8dtyQER001",
+    "passengerCount": 1
+  },
+  "id": "Q08gVS3se8Bfolh7g0ke3w",
+  "session": "XPi0ke3vxy37dDxX8rJ6q6xrw",
+  "solutionCount": 10,
+  "solutionSet": "0BbvbrWGmz3NLhys80i7ClM"
+}
+
+--batch_4rTPXEmdNZj1aTMjy4YwYgTS5kXGEY4R--
