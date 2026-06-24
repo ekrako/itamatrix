@@ -9,6 +9,7 @@ function fmtTime(iso: string): string {
   return `${m[2]}-${m[3]} ${m[4]}`;
 }
 
+/** Formats minutes as `6h30`; empty string when undefined. */
 function fmtDuration(min?: number): string {
   if (min == null) return "";
   const h = Math.floor(min / 60);
@@ -16,6 +17,7 @@ function fmtDuration(min?: number): string {
   return `${h}h${String(m).padStart(2, "0")}`;
 }
 
+/** One line per slice: route, times, stops/duration, flight numbers, warnings. */
 function summarizeSlice(sol: FlatSolution): string {
   return sol.slices
     .map((s) => {
@@ -29,6 +31,7 @@ function summarizeSlice(sol: FlatSolution): string {
     .join("\n");
 }
 
+/** Renders results as a colored terminal table, with an optional details footer. */
 export function renderTable(result: FlatResult): string {
   if (result.solutions.length === 0) {
     return chalk.yellow("No flights found.");

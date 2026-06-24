@@ -223,6 +223,7 @@ async function openFirstSolution(page: Page): Promise<boolean> {
   return false;
 }
 
+/** Reads the detail page's "Open in Google Flights" href; undefined if absent. */
 async function readGoogleFlightsUrl(page: Page): Promise<string | undefined> {
   const link = page.getByRole("link", { name: /google flights/i }).first();
   try {
@@ -232,6 +233,7 @@ async function readGoogleFlightsUrl(page: Page): Promise<string | undefined> {
   }
 }
 
+/** Launches Chromium, mapping Playwright's path-leaking errors to safe messages. */
 async function launch(headful: boolean): Promise<Browser> {
   try {
     return await chromium.launch({
@@ -253,6 +255,7 @@ async function launch(headful: boolean): Promise<Browser> {
   }
 }
 
+/** New page with a real Chrome UA and `navigator.webdriver` hidden (light stealth). */
 async function newStealthPage(browser: Browser): Promise<Page> {
   const context = await browser.newContext({
     userAgent: STEALTH_UA,

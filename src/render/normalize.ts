@@ -47,6 +47,7 @@ function parseCarrier(flight?: string): string | undefined {
   return flight?.match(/^[A-Z0-9]{2}/)?.[0];
 }
 
+/** Flattens one Matrix solution into the agent-friendly {@link FlatSolution} view. */
 function flattenSolution(sol: Solution): FlatSolution {
   const slices: FlatSlice[] = sol.itinerary.slices.map((s) => ({
     origin: s.origin.code,

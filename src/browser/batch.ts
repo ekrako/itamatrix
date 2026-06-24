@@ -48,6 +48,7 @@ export function extractCalendarPayload(batchBody: string): unknown | null {
   return null;
 }
 
+/** True if `obj` carries any of the known price-calendar summary keys. */
 function hasCalendarKey(obj: object): boolean {
   return CALENDAR_KEYS.some((k) => k in obj);
 }

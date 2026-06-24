@@ -35,6 +35,7 @@ export interface SearchCommandOptions extends CacheControlOptions {
   details?: boolean;
 }
 
+/** Validates input, runs a one-way/round-trip search, and renders table or JSON. */
 export async function runSearchCommand(
   origin: string,
   dest: string,
@@ -84,6 +85,7 @@ export function resolveRouting(opts: SearchCommandOptions): string | undefined {
   return opts.routing ?? carriersToRouting(opts.carriers);
 }
 
+/** Throws on bad origin/dest, dates, return-before-depart, or trip-control values. */
 function validate(origin: string, dest: string, opts: SearchCommandOptions): void {
   if (!origin || !dest) throw new Error("origin and destination are required");
   requireIsoDate(opts.depart, "--depart");

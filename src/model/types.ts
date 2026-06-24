@@ -151,6 +151,7 @@ export function collectFareConstruction(node: unknown): string[] {
   return [...new Set(lines)];
 }
 
+/** Appends every string in `calculations[].lines` to `out`. */
 function collectLines(calculations: unknown, out: string[]): void {
   if (!Array.isArray(calculations)) return;
   for (const calc of calculations) {
@@ -161,6 +162,7 @@ function collectLines(calculations: unknown, out: string[]): void {
   }
 }
 
+/** Unwraps the `{ response: … }` envelope Matrix bodies are sometimes wrapped in. */
 function unwrapResponse(raw: unknown): unknown {
   return raw && typeof raw === "object" && "response" in raw
     ? (raw as { response: unknown }).response

@@ -34,6 +34,7 @@ export interface MultiCityCommandOptions extends CacheControlOptions {
   details?: boolean;
 }
 
+/** Parses/validates legs, runs the multi-city search, and renders table or JSON. */
 export async function runMultiCityCommand(opts: MultiCityCommandOptions): Promise<string> {
   const slices = parseLegs(opts);
   validateTripControls(opts);
@@ -78,6 +79,7 @@ export function parseLegs(opts: MultiCityCommandOptions): Slice[] {
   return opts.legs.map((raw, i) => toSlice(raw, i, opts));
 }
 
+/** Parses one `ORIGIN:DEST:DATE` leg, applying shared routing/ext, into a Slice. */
 function toSlice(raw: string, index: number, opts: MultiCityCommandOptions): Slice {
   const parts = raw.split(":");
   if (parts.length !== 3) {
