@@ -1,3 +1,14 @@
+## [1.1.0](https://github.com/ekrako/itamatrix/compare/v1.0.3...v1.1.0) (2026-06-24)
+
+### Bug Fixes
+
+* drop count() pre-check in openFirstSolution ([f272030](https://github.com/ekrako/itamatrix/commit/f2720301410775991e7c2d777cc9e40179fb187f))
+* parseBookingDetails requires a bookingDetails object ([811d63b](https://github.com/ekrako/itamatrix/commit/811d63bba78b17b4f9ddc312fa8a7e49a5be6aea))
+
+### Features
+
+* add --details for fare construction + Google Flights link ([f52ec7c](https://github.com/ekrako/itamatrix/commit/f52ec7c20459001ccd7eaa4a098ed0103bb706c7))
+
 ## [1.0.3](https://github.com/ekrako/itamatrix/compare/v1.0.2...v1.0.3) (2026-06-24)
 
 ### Bug Fixes
