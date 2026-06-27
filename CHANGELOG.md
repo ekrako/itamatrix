@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/ekrako/itamatrix/compare/v1.1.0...v1.2.0) (2026-06-27)
+
+### Features
+
+* **skill:** Skills IL compliance — Hebrew metadata, license, signed release ([#3](https://github.com/ekrako/itamatrix/issues/3)) ([0863e6b](https://github.com/ekrako/itamatrix/commit/0863e6b1db7e7bc1bf4bac12436c5009dd5e0494))
+
 ## [1.1.0](https://github.com/ekrako/itamatrix/compare/v1.0.3...v1.1.0) (2026-06-24)
 
 ### Bug Fixes
