@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 /**
- * Generate the "Command reference" block of skills/itamatrix/SKILL.md from the
+ * Generate the "Command reference" block of SKILL.md from the
  * CLI's own commander definitions, so the skill can never drift from the flags
  * the CLI actually accepts.
  *
@@ -17,7 +17,7 @@ import type { Command, Option, Argument } from "commander";
 import { program } from "../src/cli.js";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const SKILL_PATH = resolve(HERE, "../skills/itamatrix/SKILL.md");
+const SKILL_PATH = resolve(HERE, "../SKILL.md");
 const BEGIN = "<!-- BEGIN GENERATED: command-reference -->";
 const END = "<!-- END GENERATED: command-reference -->";
 
@@ -95,7 +95,7 @@ const updated = injectBlock(current, renderBlock());
 if (check) {
   if (current !== updated) {
     process.stderr.write(
-      "error: skills/itamatrix/SKILL.md is out of date with the CLI.\n" +
+      "error: SKILL.md is out of date with the CLI.\n" +
         "       run `npm run gen:skill` and commit the result.\n",
     );
     process.exit(1);
@@ -105,7 +105,7 @@ if (check) {
 
 if (current !== updated) {
   writeFileSync(SKILL_PATH, updated);
-  process.stdout.write("updated skills/itamatrix/SKILL.md\n");
+  process.stdout.write("updated SKILL.md\n");
 } else {
-  process.stdout.write("skills/itamatrix/SKILL.md already up to date\n");
+  process.stdout.write("SKILL.md already up to date\n");
 }

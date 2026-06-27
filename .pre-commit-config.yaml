@@ -5,7 +5,7 @@ repos:
         name: skill in sync with CLI
         entry: npm run --silent gen:skill:check
         language: system
-        files: ^(src/cli\.ts|scripts/gen-skill\.ts|skills/itamatrix/SKILL\.md)$
+        files: ^(src/cli\.ts|scripts/gen-skill\.ts|SKILL\.md)$
         pass_filenames: false
       - id: typecheck
         name: tsc --noEmit

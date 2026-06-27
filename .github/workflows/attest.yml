@@ -25,14 +25,14 @@ jobs:
         run: |
           version="${GITHUB_REF_NAME#v}"
           tmp="$(mktemp)"
-          jq --arg v "$version" '.version = $v' skills/itamatrix/metadata.json > "$tmp"
-          mv "$tmp" skills/itamatrix/metadata.json
+          jq --arg v "$version" '.version = $v' metadata.json > "$tmp"
+          mv "$tmp" metadata.json
 
       - name: Attest build provenance
         uses: actions/attest-build-provenance@v4
         with:
           subject-path: |
-            skills/itamatrix/SKILL.md
-            skills/itamatrix/SKILL_HE.md
-            skills/itamatrix/metadata.json
-            skills/itamatrix/references/ROUTING_CODES.md
+            SKILL.md
+            SKILL_HE.md
+            metadata.json
+            references/ROUTING_CODES.md
