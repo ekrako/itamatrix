@@ -1,0 +1,37 @@
+name: attest
+
+# Signed-release provenance for the skill artifacts. Triggered by the GitHub
+# Release that semantic-release cuts, so the attestation carries the SAME semver
+# tag as the npm release — one version for both.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+  attestations: write
+
+jobs:
+  attest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          persist-credentials: false
+
+      - name: Stamp release version into metadata.json
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          tmp="$(mktemp)"
+          jq --arg v "$version" '.version = $v' skills/itamatrix/metadata.json > "$tmp"
+          mv "$tmp" skills/itamatrix/metadata.json
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: |
+            skills/itamatrix/SKILL.md
+            skills/itamatrix/SKILL_HE.md
+            skills/itamatrix/metadata.json

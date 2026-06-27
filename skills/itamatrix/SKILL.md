@@ -6,6 +6,33 @@ description: >-
   and especially when the request implies advanced constraints (specific carriers,
   alliances, connection hubs to force or avoid, layover limits, cabin/fare rules).
   Translates the request into the `itamatrix` CLI plus ITA routing/extension codes.
+license: MIT
+metadata:
+  display_name:
+    he: itamatrix — חיפוש טיסות ב-ITA Matrix
+  display_description:
+    he: >-
+      חיפוש טיסות ב-ITA Matrix משפה טבעית. שימושי כשרוצים למצוא טיסות, להשוות
+      מחירים, לבנות מסלול רב-יעדים, או לסרוק לוח מחירים — במיוחד עם אילוצים
+      מתקדמים (חברות תעופה, בריתות, מסופי קונקשן, מגבלות עצירה, מחלקה/כללי תעריף).
+      מתרגם את הבקשה לפקודות ה-CLI ולקודי ניתוב/הרחבה של ITA.
+  tags:
+    en:
+      - flights
+      - airfare
+      - ita-matrix
+      - travel
+      - multi-city
+      - price-calendar
+      - fare-construction
+    he:
+      - טיסות
+      - מחירי-טיסות
+      - ITA-Matrix
+      - נסיעות
+      - רב-יעדים
+      - לוח-מחירים
+      - בניית-תעריף
 ---
 
 # itamatrix — natural language → ITA Matrix search
