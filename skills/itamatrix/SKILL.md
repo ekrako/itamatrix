@@ -6,6 +6,7 @@ description: >-
   and especially when the request implies advanced constraints (specific carriers,
   alliances, connection hubs to force or avoid, layover limits, cabin/fare rules).
   Translates the request into the `itamatrix` CLI plus ITA routing/extension codes.
+license: MIT
 metadata:
   display_name:
     he: itamatrix — חיפוש טיסות ב-ITA Matrix
