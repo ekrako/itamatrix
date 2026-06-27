@@ -81,8 +81,8 @@ program
   .option("--stops <stops>", "any | none | 1 | 2")
   .option("--extra-stops <stops>", "any | none | 1 | 2")
   .option("--carriers <list>", "comma-separated carriers, e.g. UA,AA (sugar for --routing)")
-  .option("--routing <codes>", "ITA routing codes (path) — see docs/ROUTING_CODES.md")
-  .option("--ext <codes>", "ITA extension codes (faring/filters) — see docs/ROUTING_CODES.md")
+  .option("--routing <codes>", "ITA routing codes (path) — see references/ROUTING_CODES.md")
+  .option("--ext <codes>", "ITA extension codes (faring/filters) — see references/ROUTING_CODES.md")
   .option(
     "--details",
     "also fetch the top result's fare construction + Google Flights link (live, skips cache)",

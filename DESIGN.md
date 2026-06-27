@@ -166,8 +166,8 @@ Maps to `slices` count + symmetry.
 |----------|---------|--------|-----------|
 | `<ORIGIN>` | Origin | airport/city codes, multiple OK | `slices[].origins[]` |
 | `<DEST>` | Destination | airport/city codes, multiple OK | `slices[].destinations[]` |
-| `--routing "<codes>"` | Routing Codes | ITA path language (carriers, vias, operators) — see [docs/ROUTING_CODES.md](docs/ROUTING_CODES.md) | passed through, per slice |
-| `--ext "<codes>"` | Extension Codes | ITA faring & filter codes (`f bc=`, `MAXDUR`, `-OVERNIGHTS`…) — see [docs/ROUTING_CODES.md](docs/ROUTING_CODES.md) | passed through, per slice |
+| `--routing "<codes>"` | Routing Codes | ITA path language (carriers, vias, operators) — see [skills/itamatrix/references/ROUTING_CODES.md](skills/itamatrix/references/ROUTING_CODES.md) | passed through, per slice |
+| `--ext "<codes>"` | Extension Codes | ITA faring & filter codes (`f bc=`, `MAXDUR`, `-OVERNIGHTS`…) — see [skills/itamatrix/references/ROUTING_CODES.md](skills/itamatrix/references/ROUTING_CODES.md) | passed through, per slice |
 
 **Dates & times** (per slice):
 
@@ -231,7 +231,7 @@ Maps to `slices` count + symmetry.
 | P2 | filters/options: cabin, stops, carriers, ITA routing codes | ✅ done |
 | P3 | `multicity` (N slices), `calendar` (lowest-fare-per-date) | ✅ done |
 | P4 | npm packaging (`npx itamatrix`), result caching | ✅ done |
-| P5 | **agent skill** — NL → routing/extension codes via [docs/ROUTING_CODES.md](docs/ROUTING_CODES.md), wraps the CLI ([skills/itamatrix](skills/itamatrix/SKILL.md)) | ✅ done |
+| P5 | **agent skill** — NL → routing/extension codes via [skills/itamatrix/references/ROUTING_CODES.md](skills/itamatrix/references/ROUTING_CODES.md), wraps the CLI ([skills/itamatrix](skills/itamatrix/SKILL.md)) | ✅ done |
 
 ## Open questions
 

@@ -96,7 +96,7 @@ under the results. **Show both to the user when present.**
 
 ## Encode advanced intent → routing / extension codes
 
-Read **[../../docs/ROUTING_CODES.md](../../docs/ROUTING_CODES.md)** for the full
+Read **[references/ROUTING_CODES.md](references/ROUTING_CODES.md)** for the full
 grammar before constructing codes. Rules of thumb:
 
 - **Path intent → `--routing`.** Which carriers/airports/operators and in what
@@ -166,8 +166,8 @@ Search one-way or round-trip flights
 | `--stops <stops>` | any \| none \| 1 \| 2 |
 | `--extra-stops <stops>` | any \| none \| 1 \| 2 |
 | `--carriers <list>` | comma-separated carriers, e.g. UA,AA (sugar for --routing) |
-| `--routing <codes>` | ITA routing codes (path) — see docs/ROUTING_CODES.md |
-| `--ext <codes>` | ITA extension codes (faring/filters) — see docs/ROUTING_CODES.md |
+| `--routing <codes>` | ITA routing codes (path) — see references/ROUTING_CODES.md |
+| `--ext <codes>` | ITA extension codes (faring/filters) — see references/ROUTING_CODES.md |
 | `--details` | also fetch the top result's fare construction + Google Flights link (live, skips cache) |
 | `--headful` | show the browser window (debug) |
 
