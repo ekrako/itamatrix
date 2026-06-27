@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/ekrako/itamatrix/compare/v1.2.0...v1.3.0) (2026-06-27)
+
+### Features
+
+* **skill:** relocate skill to repo root so the manifest validates ([#6](https://github.com/ekrako/itamatrix/issues/6)) ([30050da](https://github.com/ekrako/itamatrix/commit/30050da2c2336a2e875dfdb5c437f796467920c5))
+
 ## [1.2.0](https://github.com/ekrako/itamatrix/compare/v1.1.0...v1.2.0) (2026-06-27)
 
 ### Features
