@@ -1,0 +1,14 @@
+{
+  "name": "itamatrix",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Search flights on ITA Matrix from natural language: one-way, round-trip, multi-city, and price-calendar searches, with advanced ITA routing/extension constraints.",
+  "display_name": {
+    "en": "itamatrix — ITA Matrix flight search",
+    "he": "itamatrix — חיפוש טיסות ב-ITA Matrix"
+  },
+  "tags": {
+    "en": ["flights", "airfare", "ita-matrix", "travel", "multi-city", "price-calendar", "fare-construction"],
+    "he": ["טיסות", "מחירי-טיסות", "ITA-Matrix", "נסיעות", "רב-יעדים", "לוח-מחירים", "בניית-תעריף"]
+  }
+}
