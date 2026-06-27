@@ -4,7 +4,8 @@ A command-line interface to [ITA Matrix](https://matrix.itasoftware.com/search)
 (Google's airfare search engine). Output auto-detects context: a TTY gets a
 human-readable table, a pipe gets JSON for scripting and AI agents.
 
-See [DESIGN.md](DESIGN.md) for architecture and [docs/ROUTING_CODES.md](docs/ROUTING_CODES.md)
+See [DESIGN.md](DESIGN.md) for architecture and
+[skills/itamatrix/references/ROUTING_CODES.md](skills/itamatrix/references/ROUTING_CODES.md)
 for the ITA routing/extension code language.
 
 ## Install
@@ -66,7 +67,7 @@ Caching is best-effort — a read/write failure degrades silently to a live quer
 [`skills/itamatrix/SKILL.md`](skills/itamatrix/SKILL.md) is a Claude Code agent
 skill that turns a natural-language trip request ("cheapest business-class
 nonstop to London on oneworld next August") into the right command plus ITA
-[routing/extension codes](docs/ROUTING_CODES.md), then runs the CLI.
+[routing/extension codes](skills/itamatrix/references/ROUTING_CODES.md), then runs the CLI.
 
 Install it with [`npx skills`](https://www.npmjs.com/package/skills) straight
 from the repo:

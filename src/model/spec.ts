@@ -11,9 +11,9 @@ export interface SearchSpec {
   cabin?: Cabin;
   stops?: StopLimit;
   extraStops?: StopLimit;
-  /** ITA routing codes (the flight path) — see docs/ROUTING_CODES.md. */
+  /** ITA routing codes (the flight path) — see references/ROUTING_CODES.md. */
   routing?: string;
-  /** ITA extension codes (faring & filters) — see docs/ROUTING_CODES.md. */
+  /** ITA extension codes (faring & filters) — see references/ROUTING_CODES.md. */
   ext?: string;
 }
 

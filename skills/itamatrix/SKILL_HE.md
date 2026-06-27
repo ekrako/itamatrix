@@ -42,7 +42,7 @@
 
 ## קודי ניתוב / הרחבה לכוונות מתקדמות
 
-קראו את **[../../docs/ROUTING_CODES.md](../../docs/ROUTING_CODES.md)** לדקדוק המלא
+קראו את **[references/ROUTING_CODES.md](references/ROUTING_CODES.md)** לדקדוק המלא
 לפני בניית קודים. כללי אצבע:
 
 - **כוונת מסלול ← `--routing`.** אילו חברות/שדות ובאיזה סדר. לדוגמה: "דרך טוקיו או
