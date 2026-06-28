@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/ekrako/itamatrix/compare/v1.3.0...v1.4.0) (2026-06-28)
+
+### Features
+
+* **cli:** add departure/arrival date basis ([#7](https://github.com/ekrako/itamatrix/issues/7)) ([90fc566](https://github.com/ekrako/itamatrix/commit/90fc566034fe996c77175bb498f675083c696fd8))
+
 ## [1.3.0](https://github.com/ekrako/itamatrix/compare/v1.2.0...v1.3.0) (2026-06-27)
 
 ### Features
