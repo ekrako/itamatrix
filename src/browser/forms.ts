@@ -7,11 +7,13 @@ import type {
 } from "../model/spec.js";
 import {
   CABIN_LABELS,
+  DATE_BASIS_LABELS,
   EXTRA_STOPS_LABELS,
   STOPS_LABELS,
   hasAdvancedControls,
   isRoundTrip,
 } from "../model/spec.js";
+import type { DateBasis } from "../model/spec.js";
 
 /**
  * Drives the Matrix search form and clicks Search.
@@ -27,6 +29,12 @@ export async function driveSearchForm(page: Page, spec: SearchSpec): Promise<voi
   await fillAirport(page, 0, spec.origin);
   await fillAirport(page, 1, spec.dest);
   await fillDates(page, spec.departDate, roundTrip ? spec.returnDate : undefined);
+  await setDateBasis(
+    page,
+    roundTrip
+      ? [spec.dateBasis, spec.returnDateBasis ?? spec.dateBasis]
+      : [spec.dateBasis],
+  );
   await setAdults(page, spec.adults);
   await setAdvancedControls(page, spec, roundTrip);
   await clickSearch(page);
@@ -51,6 +59,7 @@ export async function driveMultiCityForm(
     await commitDate(page.locator("input.mat-datepicker-input").nth(i), leg.departDate);
   }
   await dismissOverlay(page);
+  await setDateBasis(page, spec.slices.map((leg) => leg.dateBasis));
   await setAdults(page, spec.adults);
   await setMultiCityAdvanced(page, spec);
   await clickSearch(page);
@@ -85,6 +94,12 @@ export async function driveCalendarForm(
     await len.dispatchEvent("change");
   }
   await dismissOverlay(page);
+  await setDateBasis(
+    page,
+    roundTrip
+      ? [spec.dateBasis, spec.returnDateBasis ?? spec.dateBasis]
+      : [spec.dateBasis],
+  );
   await setAdults(page, spec.adults);
   await setGlobalControls(page, spec, spec.routing, spec.ext, roundTrip);
   await clickSearch(page);
@@ -246,6 +261,24 @@ async function fillDates(page: Page, departIso: string, returnIso?: string): Pro
     await commitDate(page.locator("input.mat-datepicker-input"), departIso);
   }
   await dismissOverlay(page);
+}
+
+/**
+ * Sets the per-slice "Departure / Arrival" date-basis dropdown. Matrix renders
+ * one such <mat-select> per slice (displaying "Departure" by default), so they
+ * are targeted by index. `depart` is the Matrix default and needs no action, so
+ * only slices explicitly set to `arrive` are touched. DOM-coupled like the rest
+ * of this layer; a structural change surfaces as a clear form-driving failure.
+ */
+async function setDateBasis(page: Page, bases: (DateBasis | undefined)[]): Promise<void> {
+  if (!bases.some((b) => b && b !== "depart")) return;
+
+  const selects = page.locator("mat-select").filter({ hasText: /departure|arrival/i });
+  for (const [i, basis] of bases.entries()) {
+    if (!basis || basis === "depart") continue;
+    await selects.nth(i).click();
+    await page.getByRole("option", { name: DATE_BASIS_LABELS[basis], exact: true }).click();
+  }
 }
 
 /** Clicks the calendar backdrop (if open) to commit typed dates and close it. */

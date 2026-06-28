@@ -10,6 +10,7 @@ import {
   type StopLimit,
 } from "../model/spec.js";
 import {
+  requireDateBasis,
   requireIsoDate,
   requirePageLimit,
   resolveCacheOptions,
@@ -20,7 +21,7 @@ import {
 } from "./shared.js";
 
 export interface MultiCityCommandOptions extends CacheControlOptions {
-  legs: string[]; // each "ORIGIN:DEST:YYYY-MM-DD"
+  legs: string[]; // each "ORIGIN:DEST:YYYY-MM-DD[:depart|arrive]"
   adults: number;
   limit: number;
   cabin?: string;
@@ -79,12 +80,15 @@ export function parseLegs(opts: MultiCityCommandOptions): Slice[] {
   return opts.legs.map((raw, i) => toSlice(raw, i, opts));
 }
 
-/** Parses one `ORIGIN:DEST:DATE` leg, applying shared routing/ext, into a Slice. */
+/**
+ * Parses one `ORIGIN:DEST:DATE[:BASIS]` leg, applying shared routing/ext, into a
+ * Slice. The optional 4th field sets that leg's date basis (`depart`|`arrive`).
+ */
 function toSlice(raw: string, index: number, opts: MultiCityCommandOptions): Slice {
   const parts = raw.split(":");
-  if (parts.length !== 3) {
+  if (parts.length !== 3 && parts.length !== 4) {
     throw new Error(
-      `--leg #${index + 1} must be ORIGIN:DEST:YYYY-MM-DD, got "${raw}"`,
+      `--leg #${index + 1} must be ORIGIN:DEST:YYYY-MM-DD[:depart|arrive], got "${raw}"`,
     );
   }
   const origin = parts[0]!.trim();
@@ -98,6 +102,7 @@ function toSlice(raw: string, index: number, opts: MultiCityCommandOptions): Sli
     origin: origin.toUpperCase(),
     dest: dest.toUpperCase(),
     departDate: date,
+    dateBasis: requireDateBasis(parts[3]?.trim(), `--leg #${index + 1} basis`),
     routing: opts.routing,
     ext: opts.ext,
   };

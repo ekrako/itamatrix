@@ -160,6 +160,8 @@ Search one-way or round-trip flights
 | `--depart <date>` | departure date (YYYY-MM-DD) |
 | `--return <date>` | return date (YYYY-MM-DD) → round-trip |
 | `--one-way` | force one-way (ignore --return) |
+| `--date-basis <basis>` | interpret --depart as depart \| arrive date (default depart) |
+| `--return-date-basis <basis>` | interpret --return as depart \| arrive date (default: same as --date-basis) |
 | `--adults <n>` | number of adults (default `1`) |
 | `--limit <n>` | max results, 1-25 (one Matrix page) (default `25`) |
 | `--cabin <cabin>` | cheapest \| premium-economy \| business \| first |
@@ -177,7 +179,7 @@ Search a multi-city itinerary (N legs)
 
 | Option | Meaning |
 |--------|---------|
-| `--leg <ORIGIN:DEST:DATE>` | a leg, e.g. JFK:NRT:2026-08-10 (repeatable, >= 2) |
+| `--leg <ORIGIN:DEST:DATE>` | a leg, e.g. JFK:NRT:2026-08-10 or JFK:NRT:2026-08-10:arrive (repeatable, >= 2) |
 | `--adults <n>` | number of adults (default `1`) |
 | `--limit <n>` | max results, 1-25 (one Matrix page) (default `25`) |
 | `--cabin <cabin>` | cheapest \| premium-economy \| business \| first |
@@ -197,6 +199,8 @@ Price calendar: lowest fare per departure date over a range
 |--------|---------|
 | `--depart-range <start:end>` | YYYY-MM-DD:YYYY-MM-DD |
 | `--trip-length <nights>` | round-trip nights; omit for one-way |
+| `--date-basis <basis>` | interpret departure dates as depart \| arrive (default depart) |
+| `--return-date-basis <basis>` | for a round-trip calendar, return-slice basis: depart \| arrive (default: same as --date-basis) |
 | `--adults <n>` | number of adults (default `1`) |
 | `--limit <n>` | show only the N cheapest dates (default `25`) |
 | `--cabin <cabin>` | cheapest \| premium-economy \| business \| first |

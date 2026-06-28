@@ -75,6 +75,14 @@ program
   .requiredOption("--depart <date>", "departure date (YYYY-MM-DD)")
   .option("--return <date>", "return date (YYYY-MM-DD) → round-trip")
   .option("--one-way", "force one-way (ignore --return)")
+  .option(
+    "--date-basis <basis>",
+    "interpret --depart as depart | arrive date (default depart)",
+  )
+  .option(
+    "--return-date-basis <basis>",
+    "interpret --return as depart | arrive date (default: same as --date-basis)",
+  )
   .option("--adults <n>", "number of adults", intArg("--adults"), 1)
   .option("--limit <n>", "max results, 1-25 (one Matrix page)", intArg("--limit"), 25)
   .option("--cabin <cabin>", "cheapest | premium-economy | business | first")
@@ -94,6 +102,8 @@ program
       depart: cmdOpts.depart,
       return: cmdOpts.return,
       oneWay: cmdOpts.oneWay,
+      dateBasis: cmdOpts.dateBasis,
+      returnDateBasis: cmdOpts.returnDateBasis,
       adults: cmdOpts.adults,
       limit: cmdOpts.limit,
       cabin: cmdOpts.cabin,
@@ -116,7 +126,7 @@ program
   .description("Search a multi-city itinerary (N legs)")
   .requiredOption(
     "--leg <ORIGIN:DEST:DATE>",
-    "a leg, e.g. JFK:NRT:2026-08-10 (repeatable, >= 2)",
+    "a leg, e.g. JFK:NRT:2026-08-10 or JFK:NRT:2026-08-10:arrive (repeatable, >= 2)",
     collect,
     [],
   )
@@ -165,6 +175,14 @@ program
     "round-trip nights; omit for one-way",
     intArg("--trip-length"),
   )
+  .option(
+    "--date-basis <basis>",
+    "interpret departure dates as depart | arrive (default depart)",
+  )
+  .option(
+    "--return-date-basis <basis>",
+    "for a round-trip calendar, return-slice basis: depart | arrive (default: same as --date-basis)",
+  )
   .option("--adults <n>", "number of adults", intArg("--adults"), 1)
   .option("--limit <n>", "show only the N cheapest dates", intArg("--limit"), 25)
   .option("--cabin <cabin>", "cheapest | premium-economy | business | first")
@@ -180,6 +198,8 @@ program
       runCalendarCommand(origin, dest, {
         departRange: cmdOpts.departRange,
         tripLength: cmdOpts.tripLength,
+        dateBasis: cmdOpts.dateBasis,
+        returnDateBasis: cmdOpts.returnDateBasis,
         adults: cmdOpts.adults,
         limit: cmdOpts.limit,
         cabin: cmdOpts.cabin,
