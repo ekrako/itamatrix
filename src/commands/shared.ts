@@ -1,7 +1,9 @@
 import {
   CABIN_LABELS,
+  DATE_BASIS_LABELS,
   STOPS_LABELS,
   type Cabin,
+  type DateBasis,
   type StopLimit,
 } from "../model/spec.js";
 import { collectFareConstruction } from "../model/types.js";
@@ -36,6 +38,16 @@ export const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 export const MAX_LIMIT = 25;
 export const CABINS = Object.keys(CABIN_LABELS) as Cabin[];
 export const STOPS = Object.keys(STOPS_LABELS) as StopLimit[];
+export const DATE_BASES = Object.keys(DATE_BASIS_LABELS) as DateBasis[];
+
+/** Validates a date-basis flag value, returning it typed; undefined passes through. */
+export function requireDateBasis(value: string | undefined, flag: string): DateBasis | undefined {
+  if (value === undefined) return undefined;
+  if (!DATE_BASES.includes(value as DateBasis)) {
+    throw new Error(`${flag} must be one of ${DATE_BASES.join(", ")}, got "${value}"`);
+  }
+  return value as DateBasis;
+}
 
 /** Shared cabin/stops/extra-stops/adults/limit validation across all commands. */
 export interface TripControlOptions {

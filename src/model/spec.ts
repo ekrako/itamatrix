@@ -7,6 +7,10 @@ export interface SearchSpec {
   adults: number;
   /** Matrix page size; defaults to 25 (Matrix default). */
   limit: number;
+  /** Whether the outbound date is the departure or arrival date; defaults to depart (Matrix default). */
+  dateBasis?: DateBasis;
+  /** Same, for the return slice of a round-trip; defaults to {@link dateBasis}. */
+  returnDateBasis?: DateBasis;
   /** Advanced controls (P2). Omitted fields keep Matrix defaults. */
   cabin?: Cabin;
   stops?: StopLimit;
@@ -22,6 +26,8 @@ export interface Slice {
   origin: string;
   dest: string;
   departDate: string; // YYYY-MM-DD
+  /** Whether `departDate` is the departure or arrival date; defaults to depart. */
+  dateBasis?: DateBasis;
   routing?: string;
   ext?: string;
 }
@@ -30,6 +36,7 @@ export interface Slice {
 export interface TripOptions {
   adults: number;
   limit: number;
+  dateBasis?: DateBasis;
   cabin?: Cabin;
   stops?: StopLimit;
   extraStops?: StopLimit;
@@ -51,12 +58,21 @@ export interface CalendarSpec extends TripOptions {
   departTo: string; // YYYY-MM-DD, inclusive
   /** Nights between departure and return; omit for one-way calendar. */
   tripLength?: number;
+  /** Return-slice date basis for a round-trip calendar; defaults to {@link TripOptions.dateBasis}. */
+  returnDateBasis?: DateBasis;
   routing?: string;
   ext?: string;
 }
 
 export type Cabin = "cheapest" | "premium-economy" | "business" | "first";
 export type StopLimit = "any" | "none" | "1" | "2";
+export type DateBasis = "depart" | "arrive";
+
+/** Matrix per-slice date-basis dropdown option labels, keyed by CLI value. */
+export const DATE_BASIS_LABELS: Record<DateBasis, string> = {
+  depart: "Departure",
+  arrive: "Arrival",
+};
 
 /** Matrix Cabin dropdown option labels, keyed by CLI value. */
 export const CABIN_LABELS: Record<Cabin, string> = {

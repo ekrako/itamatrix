@@ -112,6 +112,18 @@ describe("runSearchCommand validation", () => {
       runSearchCommand("BOS", "LAX", opts({ extraStops: "lots" })),
     ).rejects.toThrow(/--extra-stops must be one of/);
   });
+
+  it("rejects an unknown --date-basis", async () => {
+    await expect(
+      runSearchCommand("BOS", "LAX", opts({ dateBasis: "landing" })),
+    ).rejects.toThrow(/--date-basis must be one of/);
+  });
+
+  it("rejects an unknown --return-date-basis", async () => {
+    await expect(
+      runSearchCommand("BOS", "LAX", opts({ returnDateBasis: "landing" })),
+    ).rejects.toThrow(/--return-date-basis must be one of/);
+  });
 });
 
 describe("resolveRouting (--carriers sugar)", () => {
@@ -185,6 +197,16 @@ describe("runSearchCommand spec wiring", () => {
     const parsed = JSON.parse(out);
     expect(parsed.details.fareConstruction).toEqual(["BOS UA LON 1 NUC 1"]);
     expect(parsed.details.googleFlightsUrl).toContain("google.com/travel/flights");
+  });
+
+  it("passes per-slice date basis through to the spec", async () => {
+    captured.length = 0;
+    await runSearchCommand(
+      "BOS",
+      "LAX",
+      opts({ return: "2026-08-17", dateBasis: "arrive", returnDateBasis: "depart" }),
+    );
+    expect(captured[0]).toMatchObject({ dateBasis: "arrive", returnDateBasis: "depart" });
   });
 
   it("leaves advanced controls undefined when unset", async () => {

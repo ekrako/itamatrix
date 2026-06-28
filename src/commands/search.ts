@@ -6,6 +6,7 @@ import { renderTable } from "../render/table.js";
 import { type Cabin, type SearchSpec, type StopLimit } from "../model/spec.js";
 import {
   carriersToRouting,
+  requireDateBasis,
   requireIsoDate,
   requirePageLimit,
   resolveCacheOptions,
@@ -21,6 +22,8 @@ export interface SearchCommandOptions extends CacheControlOptions {
   depart: string;
   return?: string;
   oneWay?: boolean;
+  dateBasis?: string;
+  returnDateBasis?: string;
   adults: number;
   limit: number;
   cabin?: string;
@@ -48,6 +51,8 @@ export async function runSearchCommand(
     dest: dest.toUpperCase(),
     departDate: opts.depart,
     returnDate: opts.oneWay ? undefined : opts.return,
+    dateBasis: requireDateBasis(opts.dateBasis, "--date-basis"),
+    returnDateBasis: requireDateBasis(opts.returnDateBasis, "--return-date-basis"),
     adults: opts.adults,
     limit: opts.limit,
     cabin: opts.cabin as Cabin | undefined,

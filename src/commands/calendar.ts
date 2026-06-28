@@ -7,6 +7,7 @@ import {
 } from "../render/calendar.js";
 import { type Cabin, type CalendarSpec, type StopLimit } from "../model/spec.js";
 import {
+  requireDateBasis,
   requireIsoDate,
   resolveCacheOptions,
   validateTripControls,
@@ -17,6 +18,8 @@ import {
 export interface CalendarCommandOptions extends CacheControlOptions {
   departRange: string; // "YYYY-MM-DD:YYYY-MM-DD"
   tripLength?: number;
+  dateBasis?: string;
+  returnDateBasis?: string;
   adults: number;
   limit: number;
   cabin?: string;
@@ -42,6 +45,8 @@ export async function runCalendarCommand(
     departFrom: from,
     departTo: to,
     tripLength: opts.tripLength,
+    dateBasis: requireDateBasis(opts.dateBasis, "--date-basis"),
+    returnDateBasis: requireDateBasis(opts.returnDateBasis, "--return-date-basis"),
     adults: opts.adults,
     limit: opts.limit,
     cabin: opts.cabin as Cabin | undefined,

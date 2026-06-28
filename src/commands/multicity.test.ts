@@ -47,6 +47,19 @@ describe("parseLegs", () => {
     );
   });
 
+  it("parses an optional 4th basis field per leg", () => {
+    const slices = parseLegs(
+      opts({ legs: ["JFK:NRT:2026-08-10:arrive", "NRT:SIN:2026-08-15"] }),
+    );
+    expect(slices.map((s) => s.dateBasis)).toEqual(["arrive", undefined]);
+  });
+
+  it("rejects an unknown leg basis", () => {
+    expect(() =>
+      parseLegs(opts({ legs: ["JFK:NRT:2026-08-10:landing", "NRT:SIN:2026-08-15"] })),
+    ).toThrow(/basis must be one of/);
+  });
+
   it("rejects a leg with a malformed date", () => {
     expect(() =>
       parseLegs(opts({ legs: ["JFK:NRT:08/10", "NRT:SIN:2026-08-15"] })),
