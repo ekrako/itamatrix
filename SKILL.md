@@ -127,9 +127,19 @@ grammar before constructing codes. Rules of thumb:
 2. Choose the command; resolve relative dates to absolute.
 3. Map constraints to flags first; encode the rest as `--routing` / `--ext`
    using the reference doc.
-4. **Echo the constructed command to the user before running** — especially the
+4. **Verify constraints before searching** — never search on assumptions. Confirm:
+   - **Time constraints / date basis** — for *each* leg, confirm whether its date
+     is a **departure** or **arrival** date (`--date-basis` / per-leg `:depart|:arrive`).
+     Don't default silently; an arrival-date leg with a depart basis is a wrong search.
+   - **Group size** — how many travelers (`--adults N`, plus any other pax types).
+   - **Preferred cabin** — `cheapest | premium-economy | business | first`.
+   - **Airline / alliance requirement** — explicitly ask if there's a carrier or
+     alliance preference (`--carriers` / `--ext "ALLIANCE …"`). Don't skip this —
+     ask even if the user didn't mention one.
+   Only proceed once these are settled.
+5. **Echo the constructed command to the user before running** — especially the
    routing/extension codes, so they can confirm or correct the intent.
-5. Run with `--json`, parse, and present the results clearly (price, carriers,
+6. Run with `--json`, parse, and present the results clearly (price, carriers,
    stops, duration). On a CLI error, read the message — it names the bad flag —
    and fix the command rather than guessing.
 
