@@ -60,10 +60,10 @@
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1",
     "@types/node": "^22.10.0",
-    "markdownlint-cli2": "^0.15.0",
+    "markdownlint-cli2": "^0.23.0",
     "semantic-release": "^25.0.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "vitest": "^3.2.6"
+    "vitest": "^4.1.10"
   }
 }
