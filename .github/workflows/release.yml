@@ -17,6 +17,9 @@ concurrency:
 jobs:
   release:
     runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.release.outputs.published }}
+      version: ${{ steps.release.outputs.version }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -40,7 +43,63 @@ jobs:
           npm run lint:md
           npm test
 
+      - name: Record latest tag before release
+        id: pre
+        run: echo "tag=$(git describe --tags --abbrev=0 2>/dev/null || echo '')" >> "$GITHUB_OUTPUT"
+
       - name: Semantic release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
+
+      # semantic-release creates the release tag in the local repo, so a tag
+      # change here means a new release was published on this run. Runs even
+      # when semantic-release fails partway (tag pushed, publish plugin
+      # errored) so the tagged release still gets attested.
+      - name: Detect new release
+        id: release
+        if: ${{ !cancelled() }}
+        run: |
+          tag="$(git describe --tags --abbrev=0 2>/dev/null || echo '')"
+          if [ -n "$tag" ] && [ "$tag" != "${{ steps.pre.outputs.tag }}" ]; then
+            echo "published=true" >> "$GITHUB_OUTPUT"
+            echo "version=${tag#v}" >> "$GITHUB_OUTPUT"
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  # Separate job so a transient attestation failure can be retried via
+  # "Re-run failed jobs" without re-running semantic-release (which would fail
+  # its branch-up-to-date check once the release commit is on master).
+  attest:
+    needs: release
+    # !cancelled(): attest whenever a tag was cut, even if the release job
+    # later failed (e.g. a publish plugin error after the tag was pushed).
+    if: ${{ !cancelled() && needs.release.outputs.published == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v${{ needs.release.outputs.version }}
+          persist-credentials: false
+
+      # Attestation must carry the release semver so the attested metadata.json
+      # matches what the skill directory verifies.
+      - name: Stamp release version into metadata.json
+        run: |
+          tmp="$(mktemp)"
+          jq --arg v "${{ needs.release.outputs.version }}" '.version = $v' metadata.json > "$tmp"
+          mv "$tmp" metadata.json
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: |
+            SKILL.md
+            SKILL_HE.md
+            metadata.json
+            references/ROUTING_CODES.md
