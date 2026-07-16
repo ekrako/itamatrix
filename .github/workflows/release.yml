@@ -59,9 +59,11 @@ jobs:
       - name: Detect new release
         id: release
         if: ${{ !cancelled() }}
+        env:
+          PRE_TAG: ${{ steps.pre.outputs.tag }}
         run: |
           tag="$(git describe --tags --abbrev=0 2>/dev/null || echo '')"
-          if [ -n "$tag" ] && [ "$tag" != "${{ steps.pre.outputs.tag }}" ]; then
+          if [ -n "$tag" ] && [ "$tag" != "$PRE_TAG" ]; then
             echo "published=true" >> "$GITHUB_OUTPUT"
             echo "version=${tag#v}" >> "$GITHUB_OUTPUT"
           else
